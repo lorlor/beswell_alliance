@@ -1,0 +1,47 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.beswell.beswell_al.ShowQueryRes">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/all"
+            android:text="全部"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/all_button"
+            android:textColor="#f0f0f0" />
+
+        <Button
+            android:id="@+id/checked"
+            android:text="已审核"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/checked_button"
+            android:textColor="#f0f0f0" />
+
+        <Button
+            android:id="@+id/unchecked"
+            android:text="未审核"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/unchecked_button"
+            android:textColor="#f0f0f0" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/query_res"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></ListView>
+
+</LinearLayout>

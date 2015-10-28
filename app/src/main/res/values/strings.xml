@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">百维阳光联盟</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_main_screen">管理首页</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_show_hist_res">洗车历史记录</string>
+    <string name="title_activity_show_query_res">查询记录</string>
+    <string name="title_activity_set_post_ops">洗车申请</string>
+
+</resources>

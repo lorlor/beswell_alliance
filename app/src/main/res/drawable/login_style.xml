@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <shape>
+            <corners
+                android:radius="14dp"/>
+
+            <gradient
+                android:centerColor="#f0ad4e"
+                android:angle="0"
+                android:type="linear"
+                android:gradientRadius="140px"
+                android:startColor="#f0f0f0"
+                android:endColor="#ffffff"/>
+        </shape>
+    </item>
+    <item android:state_pressed="false" android:drawable="@drawable/button_login"/>
+</selector>

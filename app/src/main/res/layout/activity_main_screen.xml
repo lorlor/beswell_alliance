@@ -1,0 +1,96 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.beswell.beswell_al.MainScreen">
+
+    <LinearLayout
+        android:id="@+id/banner"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_weight="3"
+            android:text="联盟号："
+            android:textSize="20dp"
+            android:id="@+id/AlCCId"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:background="#104e8b"
+            android:textColor="#eec900"
+            android:paddingBottom="12px"
+            android:paddingTop="12px" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#ffffff"/>
+
+    <LinearLayout
+        android:id="@+id/op_buttons"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/AlCCHistory"
+            android:text="历史"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:background="@drawable/hist_style"
+            android:textColor="#ffffff"
+            android:layout_marginRight="4dp" />
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/AlCCSet"
+            android:text="设置"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:background="@drawable/set_style"
+            android:textColor="#ffffff"
+            android:layout_marginRight="4dp"
+            android:layout_marginLeft="4dp" />
+
+        <Button
+            android:layout_weight="1"
+            android:id="@+id/AlCCQuery"
+            android:text="查询"
+            android:layout_width="0px"
+            android:layout_height="match_parent"
+            android:background="@drawable/query_style"
+            android:textColor="#ffffff"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp" />
+
+        <Button
+            android:layout_weight="1"
+            android:text="返回"
+            android:id="@+id/AlCCBack"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:background="@drawable/back_style"
+            android:layout_marginLeft="4dp" />
+
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/AlContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+
+    <TextView
+        android:gravity="center_horizontal"
+        android:text="© 2015 Beswell.com 百维阳光汽车服务"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

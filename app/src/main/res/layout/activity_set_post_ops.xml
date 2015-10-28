@@ -1,0 +1,193 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:showDividers="middle"
+    tools:context="com.beswell.beswell_al.SetPostOps">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!--1-->
+            <TextView
+                android:text="公司名称"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:typeface="monospace"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp" />
+            <EditText
+                android:id="@+id/set_shopname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:background="#1c86ee"
+                android:textColor="#fff"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp" />
+
+            <!--2-->
+            <TextView
+                android:text="联系人"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:typeface="monospace"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp" />
+            <EditText
+                android:id="@+id/set_contactperson"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#1c86ee"
+                android:textSize="16sp"
+                android:textColor="#fff"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp" />
+
+            <!--3-->
+            <TextView
+                android:text="联系电话"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                android:textColor="#000"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp" />
+            <EditText
+                android:id="@+id/set_contactphone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#1c86ee"
+                android:textSize="16sp"
+                android:textColor="#fff"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp" />
+
+            <!--4-->
+            <TextView
+                android:text="详细地址"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp" />
+            <EditText
+                android:id="@+id/set_shoploc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#1c86ee"
+                android:textSize="16sp"
+                android:textColor="#fff"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp" />
+
+            <!--5-->
+            <TextView
+                android:text="A卡 外观洗车 消费次数"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:typeface="monospace"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp" />
+            <EditText
+                android:id="@+id/set_cca"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#1c86ee"
+                android:textSize="16sp"
+                android:textColor="#fff"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp" />
+
+            <!--6-->
+            <TextView
+                android:text="A卡 标准洗车 消费次数"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp" />
+            <EditText
+                android:id="@+id/set_cca2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#1c86ee"
+                android:textSize="16sp"
+                android:textColor="#fff"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp" />
+
+            <!--7-->
+            <TextView
+                android:text="B卡 标准洗车 消费次数"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:typeface="monospace"
+                android:textStyle="bold"
+                android:textColor="#000"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp" />
+            <EditText
+                android:id="@+id/set_ccb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#1c86ee"
+                android:textSize="16sp"
+                android:textColor="#fff"
+                android:paddingBottom="2dp"
+                android:paddingTop="2dp" />
+
+            <!--8-->
+            <TextView
+                android:text="申请状态"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#000"
+                android:textStyle="bold"
+                android:typeface="monospace"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp" />
+            <EditText
+                android:editable="false"
+                android:id="@+id/set_st"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#1c86ee"
+                android:textSize="16sp"
+                android:textColor="#fff"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp" />
+
+            <Button
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/set_confirm"
+                android:text="提交申请"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/set_query"
+                android:layout_marginTop="20dp"
+                android:textColor="#fff" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

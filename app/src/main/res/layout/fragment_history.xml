@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_weight="0.5"
+        android:gravity="center"
+        android:text="设置起始时间"
+        android:textColor="#ffffff"
+        android:background="#1c86ee"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <DatePicker
+        android:layout_weight="6"
+        android:id="@+id/hist_startTime"
+        android:calendarViewShown="false"
+        android:spinnersShown="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"></DatePicker>
+
+    <TextView
+        android:gravity="center"
+        android:layout_weight="0.5"
+        android:text="设置截止时间"
+        android:textColor="#ffffff"
+        android:background="#1c86ee"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <DatePicker
+        android:layout_weight="6"
+        android:id="@+id/hist_endTime"
+        android:calendarViewShown="false"
+        android:spinnersShown="true"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"></DatePicker>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp">
+
+        <Button
+            android:id="@+id/hist_query"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/hist_style"
+            android:textColor="#ffffff"
+            android:text="查询"
+            android:layout_marginRight="5dp"
+            android:layout_marginLeft="5dp" />
+
+        <Button
+            android:id="@+id/hist_back"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="返回"
+            android:textColor="#ffffff"
+            android:background="@drawable/hist_style"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

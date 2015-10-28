@@ -1,0 +1,160 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.beswell.beswell_al.ShowHistRes"
+    android:background="#fff">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#5e5e5e">
+
+        <TextView
+            android:text="One"
+            android:id="@+id/total_count"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:textSize="20sp"
+            android:textColor="#fff" />
+
+        <TextView
+            android:text="Two"
+            android:id="@+id/total_cccount"
+            android:layout_width="0px"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textSize="20sp"
+            android:textColor="#fff" />
+
+        </LinearLayout>
+
+    <ScrollView
+        android:layout_weight="4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#1c86ee">
+            <TextView
+                android:id="@+id/hist_id"
+                android:paddingLeft="20px"
+                android:layout_marginTop="12px"
+                android:textSize="26sp"
+                android:textColor="#000"
+                android:background="@drawable/text_shape"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/hist_time"
+                android:paddingLeft="20px"
+                android:layout_marginTop="12px"
+                android:textSize="20sp"
+                android:textColor="#080808"
+                android:background="@drawable/text_shape"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/hist_plate"
+                android:paddingLeft="20px"
+                android:layout_marginTop="12px"
+                android:textSize="20sp"
+                android:textColor="#080808"
+                android:background="@drawable/text_shape"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/hist_cardcode"
+                android:paddingLeft="20px"
+                android:layout_marginTop="12px"
+                android:textSize="20sp"
+                android:textColor="#080808"
+                android:background="@drawable/text_shape"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/hist_cctype"
+                android:paddingLeft="20px"
+                android:layout_marginTop="12px"
+                android:textSize="20sp"
+                android:textColor="#080808"
+                android:background="@drawable/text_shape"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/hist_cctimes"
+                android:paddingLeft="20px"
+                android:layout_marginTop="12px"
+                android:textSize="20sp"
+                android:textColor="#080808"
+                android:background="@drawable/text_shape"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/hist_star"
+                android:paddingLeft="20px"
+                android:layout_marginTop="12px"
+                android:textSize="20sp"
+                android:textColor="#080808"
+                android:background="@drawable/text_shape"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent" />
+            <TextView
+                android:id="@+id/hist_comment"
+                android:paddingLeft="20px"
+                android:layout_marginTop="12px"
+                android:textSize="20sp"
+                android:textColor="#080808"
+                android:background="@drawable/text_shape"
+                android:layout_width="fill_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/hist_nextPage"
+            android:layout_weight="1"
+            android:text="下一页"
+            android:textColor="#fff"
+            android:background="#1c86ee"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+        <Spinner
+            android:id="@+id/hist_item"
+            android:layout_weight="1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#00bfff"></Spinner>
+
+        <Button
+            android:id="@+id/hist_prevPage"
+            android:layout_weight="1"
+            android:text="上一页"
+            android:textColor="#fff"
+            android:background="#1c86ee"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>
