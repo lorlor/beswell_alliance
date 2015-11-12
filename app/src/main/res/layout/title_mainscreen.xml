@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainscreen_title"
+    android:background="#006cbf"
+    android:orientation="horizontal"
+    android:layout_width="fill_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_marginLeft="26px"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:text="管理首页"
+        android:textColor="#fff"
+        android:layout_width="0px"
+        android:layout_weight="4"
+        android:textSize="20sp"
+        android:layout_height="wrap_content" />
+
+    <ImageButton
+        android:layout_gravity="center_vertical"
+        android:id="@+id/AlCCSet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ib_back"
+        android:layout_marginRight="10dp"
+        android:scaleX="0.6"
+        android:scaleY="0.6"/>
+
+</LinearLayout>

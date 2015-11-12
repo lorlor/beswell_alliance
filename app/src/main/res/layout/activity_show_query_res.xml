@@ -1,9 +1,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="#fff"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.beswell.beswell_al.ShowQueryRes">
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:background="#fff"/>
 
     <LinearLayout
         android:orientation="horizontal"
@@ -12,36 +18,62 @@
 
         <Button
             android:id="@+id/all"
-            android:text="全部"
+            android:text="全 部"
             android:layout_width="0px"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/all_button"
-            android:textColor="#f0f0f0" />
+            android:textColor="#f0f0f0"
+            android:textSize="18sp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp" />
 
         <Button
             android:id="@+id/checked"
             android:text="已审核"
             android:layout_width="0px"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/checked_button"
-            android:textColor="#f0f0f0" />
+            android:textColor="#f0f0f0"
+            android:textSize="18sp"
+            android:paddingBottom="8dp"
+            android:paddingTop="8dp" />
 
         <Button
             android:id="@+id/unchecked"
             android:text="未审核"
             android:layout_width="0px"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@drawable/unchecked_button"
-            android:textColor="#f0f0f0" />
+            android:textColor="#f0f0f0"
+            android:textSize="18sp"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp" />
 
     </LinearLayout>
 
-    <ListView
-        android:id="@+id/query_res"
+    <LinearLayout
+        android:id="@+id/query_cont"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="wrap_content">
+        <ListView
+            android:id="@+id/query_res"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="#d7d7d7"
+            android:dividerHeight="1dp"></ListView>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/cr_infoq"
+        android:layout_gravity="bottom"
+        android:gravity="center_horizontal"
+        android:text="© 2015 Beswell.com 百维阳光汽车服务"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="1dp"/>
 
 </LinearLayout>

@@ -1,6 +1,8 @@
 package com.beswell.beswell_al;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -11,9 +13,16 @@ import android.os.PowerManager;
 import android.support.annotation.NonNull;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.text.Html;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -34,9 +43,9 @@ import java.util.ListIterator;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class MainScreen extends ActionBarActivity {
+public class MainScreen extends Activity {
 
-    static String IP = "192.168.0.101";
+    static String IP = "192.168.0.100";
 
     public Timer timer = null;
     public TimerTask task = null;
@@ -44,8 +53,10 @@ public class MainScreen extends ActionBarActivity {
     private TextView alid;
     private Button alback;
     private Button alhistory;
-    private Button alset;
+    private ImageButton alset;
     private Button alquery;
+
+    private TextView totalInfo;
 
     private ListView container;
     private ListViewAdapter lva;
@@ -65,13 +76,18 @@ public class MainScreen extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_screen);
+        requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+        setContentView(R.layout.activity_main_screen_up);
+        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.title_mainscreen);
 
         alid = (TextView)findViewById(R.id.AlCCId);
-        alback = (Button)findViewById(R.id.AlCCBack);
+//        alback = (Button)findViewById(R.id.AlCCBack);
         alhistory = (Button)findViewById(R.id.AlCCHistory);
-        alset = (Button)findViewById(R.id.AlCCSet);
+        alset = (ImageButton)findViewById(R.id.AlCCSet);
         alquery = (Button)findViewById(R.id.AlCCQuery);
+        totalInfo = (TextView)findViewById(R.id.AlCCTotalInfo);
+        totalInfo.setText(Html.fromHtml("今日洗车 <font color=red>0</font> 辆"));
+
         container = (ListView)findViewById(R.id.AlContent);
 
         sp = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
@@ -84,21 +100,6 @@ public class MainScreen extends ActionBarActivity {
         Alid = intent.getStringExtra("Alid");
         hash = intent.getStringExtra("hash");
         alid.setText("联盟号：" + Alid);
-
-        alback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(0 == sid){
-                    Toast.makeText(getApplicationContext(), "声音加载失败", Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    Intent intent = new Intent(MainScreen.this, LoginActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-            }
-        });
 
         alhistory.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,6 +155,46 @@ public class MainScreen extends ActionBarActivity {
         timer.cancel();
     }
 
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event)
+    {
+        if (keyCode == KeyEvent.KEYCODE_BACK )
+        {
+//            // 创建退出对话框
+//            AlertDialog isExit = new AlertDialog.Builder(this).create();
+//            // 设置对话框标题
+//            isExit.setTitle("系统提示");
+//            // 设置对话框消息
+//            isExit.setMessage("确定要退出吗");
+//            // 添加选择按钮并注册监听
+//            isExit.setButton(DialogInterface.BUTTON_POSITIVE, "确定", listener);
+//            isExit.setButton(DialogInterface.BUTTON_NEGATIVE, "取消", listener);
+//            // 显示对话框
+//            isExit.show();
+                finish();
+        }
+
+        return false;
+
+    }
+    /**监听对话框里面的button点击事件*/
+    DialogInterface.OnClickListener listener = new DialogInterface.OnClickListener()
+    {
+        public void onClick(DialogInterface dialog, int which)
+        {
+            switch (which)
+            {
+                case AlertDialog.BUTTON_POSITIVE:// "确认"按钮退出程序
+                    finish();
+                    break;
+                case AlertDialog.BUTTON_NEGATIVE:// "取消"第二个按钮取消对话框
+                    break;
+                default:
+                    break;
+            }
+        }
+    };
+
     public void initLV(){
         String[] gnr_info = new String[]{"One", "2015-12-13", "3"};
         String[] gnr_info1 = new String[]{"One", "2015-12-13", "3"};
@@ -175,21 +216,25 @@ public class MainScreen extends ActionBarActivity {
         list.add(gnr_info6);
         list.add(gnr_info7);*/
 
-        lva = new ListViewAdapter(this, list);
-        container.setBackgroundResource(R.drawable.beswell_logo);
+        lva = new ListViewAdapter(this, list);;
         container.setAdapter(lva);
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        Log.d("WH", dm.widthPixels + "*****" + dm.heightPixels + "");
+        ViewGroup.LayoutParams lp = findViewById(R.id.content).getLayoutParams();
+        lp.width = dm.widthPixels;
+        lp.height = (int)getResources().getDimension(R.dimen.refresh_len);
 
+        findViewById(R.id.content).setLayoutParams(lp);
     }
 
     public Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            Log.d("Debug in Handler=>", msg.toString());
             String res = msg.obj.toString();
             if(res.substring(0,1).equals("1")){
                 container.setBackgroundColor(0xffffff);
-                Log.d("Debug", "yes, it\'s me!");
                 RefreshQueryAsyncTask rqat = new RefreshQueryAsyncTask();
                 rqat.execute(IP);
                 sp.play(sid, 1, 1, 0, 0, 1);
@@ -263,7 +308,6 @@ public class MainScreen extends ActionBarActivity {
                 retValue = ret.getProperty("return").toString();
                 Log.d("Runable Debug==>", retValue);
 
-                //如果不考虑结果，下面三行进行注释，才能重复运行？？？？？
                 Message msg = handler.obtainMessage();
                 msg.obj = retValue;
                 handler.sendMessage(msg);
@@ -285,10 +329,12 @@ public class MainScreen extends ActionBarActivity {
             int cur = 0;
             if(out.length == 0){
                 cur = 0;
+
             }
             else {
                 cur = out.length;
             }
+            totalInfo.setText(Html.fromHtml("今日洗车 <font color=red>" + cur + "</font> 辆"));
 
             if(cur > history) {
                 for (int i = 0; i < cur - history; i++) {

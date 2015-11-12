@@ -4,5 +4,25 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
     </style>
+    
+    <style name="MainScreenStyle" parent="android:Theme">
+        <item name="android:windowTitleSize">50dp</item>
+        <item name="android:padding">0dp</item>
+    </style>
+
+    <style name="QueryResStyle" parent="android:Theme">
+        <item name="android:windowTitleSize">50dp</item>
+        <item name="android:padding">0dp</item>
+    </style>
+
+    <style name="PostSetStyle" parent="android:Theme">
+        <item name="android:windowTitleSize">50dp</item>
+        <item name="android:padding">0dp</item>
+    </style>
+
+    <style name="HistoryStyle" parent="android:Theme">
+        <item name="android:windowTitleSize">50dp</item>
+        <item name="android:padding">0dp</item>
+    </style>
 
 </resources>

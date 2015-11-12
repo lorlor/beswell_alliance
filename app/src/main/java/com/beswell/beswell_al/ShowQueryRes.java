@@ -1,12 +1,16 @@
 package com.beswell.beswell_al;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -14,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class ShowQueryRes extends ActionBarActivity {
+public class ShowQueryRes extends Activity {
 
     private Button all;
     private Button checked;
@@ -29,7 +33,9 @@ public class ShowQueryRes extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
         setContentView(R.layout.activity_show_query_res);
+        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.title_queryres);
 
         all = (Button)findViewById(R.id.all);
         checked = (Button)findViewById(R.id.checked);
@@ -97,6 +103,15 @@ public class ShowQueryRes extends ActionBarActivity {
         data = new ArrayList<String[]>();
         qla = new QueryListAdapter(getApplicationContext(), data);
         lv.setAdapter(qla);
+
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        Log.d("WH", dm.widthPixels + "*****" + dm.heightPixels + "");
+        ViewGroup.LayoutParams lp = findViewById(R.id.query_cont).getLayoutParams();
+        lp.width = dm.widthPixels;
+        lp.height = (int)getResources().getDimension(R.dimen.query_len);
+
+        findViewById(R.id.query_cont).setLayoutParams(lp);
     }
 
     public void setData(int flag, Bundle input){

@@ -1,5 +1,6 @@
 package com.beswell.beswell_al;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -15,7 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class ShowHistRes extends ActionBarActivity {
+public class ShowHistRes extends Activity {
 
     TextView tv;
     Intent intent;
@@ -44,7 +46,9 @@ public class ShowHistRes extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
         setContentView(R.layout.activity_show_hist_res);
+        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.title_hist);
 
         intent = getIntent();
         records = intent.getBundleExtra("Result");
@@ -78,7 +82,7 @@ public class ShowHistRes extends ActionBarActivity {
 
         setContent(records, 0);
 
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1);
+        adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1/*R.layout.spinner_item*/);
         for (int i = 0; i < records.size(); i++) {
             int temp = i + 1;
             adapter.add("第" + temp + "页");
@@ -153,28 +157,28 @@ public class ShowHistRes extends ActionBarActivity {
         String record = set.getString("" + serialNo);
         String[] elem = record.split("  ");
 
-        hist_id.setText("序号：" + (serialNo + 1));
+        hist_id.setText(" 序号：" + (serialNo + 1));
         if(serialNo == 0) {
-            hist_time.setText("时间：" + elem[0].substring(0, 16));
+            hist_time.setText(" 时间：" + elem[0].substring(0, 16));
         }
         else{
-            hist_time.setText("时间：" + elem[0].substring(0, 17));
+            hist_time.setText(" 时间：" + elem[0].substring(0, 17));
         }
-        hist_plate.setText("车牌：" + elem[1]);
-        hist_cctype.setText("类型：" + elem[2]);
-        hist_cardcode.setText("卡号：" + elem[4]);
-        hist_cctimes.setText("次数：" + elem[3]);
+        hist_plate.setText(" 车牌：" + elem[1]);
+        hist_cctype.setText(" 类型：" + elem[2]);
+        hist_cardcode.setText(" 卡号：" + elem[4]);
+        hist_cctimes.setText(" 次数：" + elem[3]);
         if(elem[5].equals("null")) {
-            hist_star.setText("评分： - ");
+            hist_star.setText(" 评分： - ");
         }
         else{
-            hist_star.setText("评分：" + elem[5]);
+            hist_star.setText(" 评分：" + elem[5]);
         }
         if(elem[6].equals("null")) {
-            hist_comment.setText("评价： - ");
+            hist_comment.setText(" 评价： - ");
         }
         else{
-            hist_comment.setText("评价：" + elem[6]);
+            hist_comment.setText(" 评价：" + elem[6]);
         }
     }
 }

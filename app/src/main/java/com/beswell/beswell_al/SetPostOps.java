@@ -1,5 +1,6 @@
 package com.beswell.beswell_al;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.location.LocationManager;
@@ -10,6 +11,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -25,9 +28,9 @@ import java.io.IOException;
 import java.util.List;
 
 
-public class SetPostOps extends ActionBarActivity {
+public class SetPostOps extends Activity {
 
-    String IP = "192.168.0.101";
+    String IP = "192.168.0.100";
 
     public EditText shopname;
     public EditText contactperson;
@@ -48,7 +51,10 @@ public class SetPostOps extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_CUSTOM_TITLE);
+        getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         setContentView(R.layout.activity_set_post_ops);
+        getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.title_postset);
 
         lm = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
         List<String> provider = lm.getProviders(true);

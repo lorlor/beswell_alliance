@@ -9,14 +9,26 @@
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
+    <uses-sdk
+        android:minSdkVersion="17"
+        android:targetSdkVersion="21"/>
+
+    <supports-screens
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:xlargeScreens="true"
+        android:anyDensity="true"
+        android:resizeable="true"/>
+
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/al_icon_4"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".LoginActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,19 +37,23 @@
         </activity>
         <activity
             android:name=".MainScreen"
-            android:label="@string/title_activity_main_screen" >
+            android:label="@string/title_activity_main_screen"
+            android:theme="@style/MainScreenStyle">
         </activity>
         <activity
             android:name=".ShowHistRes"
-            android:label="@string/title_activity_show_hist_res" >
+            android:label="@string/title_activity_show_hist_res"
+            android:theme="@style/HistoryStyle">
         </activity>
         <activity
             android:name=".ShowQueryRes"
-            android:label="@string/title_activity_show_query_res" >
+            android:label="@string/title_activity_show_query_res"
+            android:theme="@style/QueryResStyle">
         </activity>
         <activity
             android:name=".SetPostOps"
-            android:label="@string/title_activity_set_post_ops" >
+            android:label="@string/title_activity_set_post_ops"
+            android:theme="@style/PostSetStyle">
         </activity>
     </application>
 

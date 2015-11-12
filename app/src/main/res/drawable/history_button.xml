@@ -5,9 +5,12 @@
         android:radius="12px"/>
 
     <solid
-        android:color="#1c86ee"/>
+        android:color="#fea201"/>
 
     <stroke
         android:color="#f7f7f7"/>
+
+    <size
+        android:height="22dp"/>
 
 </shape>

@@ -66,15 +66,19 @@ public class ListViewAdapter extends BaseAdapter {
         }
 
         total.payInfo.setText("到账通知");
-        total.payInfo.setTextSize(25);
+        total.payInfo.setTextSize(22);
+        total.payInfo.setTextColor(0xff555555);
         total.payInfo.setGravity(View.TEXT_ALIGNMENT_CENTER);
-        total.payInfo.setTypeface(Typeface.MONOSPACE, 1);
+        total.payInfo.setTypeface(Typeface.MONOSPACE, 0);
         total.chargeTime.setText("付款时间：" + data.get(position)[0]);
         total.chargeTime.setTextSize(15);
+        total.chargeTime.setTextColor(0xff666666);
         total.plate.setText("车牌号：" + data.get(position)[1]);
         total.plate.setTextSize(15);
+        total.plate.setTextColor(0xff777777);
         total.counts.setText(getCCType(data.get(position)[2]) + data.get(position)[3] + "次");
         total.counts.setTextSize(15);
+        total.counts.setTextColor(0xff888888);
 
         return convertView;
     }

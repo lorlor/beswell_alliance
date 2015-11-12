@@ -37,15 +37,15 @@
         android:id="@+id/AlLoginUsername"
         android:hint="用户名"
         android:gravity="center"
-        android:layout_below="@+id/brand_name"
-        android:layout_marginTop="26dp"
-        android:layout_alignRight="@+id/AlLoginPasswd"
-        android:layout_alignEnd="@+id/AlLoginPasswd"
-        android:layout_alignLeft="@+id/AlLoginPasswd"
-        android:layout_alignStart="@+id/AlLoginPasswd"
         android:background="@drawable/text_shape"
         android:paddingTop="8px"
-        android:paddingBottom="8px" />
+        android:paddingBottom="8px"
+        android:layout_below="@+id/brand_name"
+        android:layout_alignLeft="@+id/AlLoginPasswd"
+        android:layout_alignStart="@+id/AlLoginPasswd"
+        android:layout_marginTop="60dp"
+        android:layout_alignRight="@+id/AlLoginPasswd"
+        android:layout_alignEnd="@+id/AlLoginPasswd" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -55,12 +55,13 @@
         android:id="@+id/AlLoginPasswd"
         android:hint="密  码"
         android:gravity="center"
-        android:layout_below="@+id/AlLoginUsername"
-        android:layout_centerHorizontal="true"
         android:background="@drawable/text_shape"
         android:paddingTop="8px"
         android:paddingBottom="8px"
-        android:layout_marginTop="8px" />
+        android:layout_below="@+id/AlLoginUsername"
+        android:layout_alignRight="@+id/copyright_info"
+        android:layout_alignEnd="@+id/copyright_info"
+        android:layout_marginTop="@dimen/pwd_marginTop" />
 
     <Button
         android:layout_width="wrap_content"
@@ -69,7 +70,7 @@
         android:id="@+id/AlLoginBtn"
         android:textColor="#ffffff"
         android:background="@drawable/login_style"
-        android:layout_marginTop="38dp"
+        android:layout_marginTop="@dimen/login_marginTop"
         android:layout_below="@+id/AlLoginPasswd"
         android:layout_centerHorizontal="true" />
 
@@ -77,23 +78,13 @@
         android:id="@+id/copyright_info"
         android:text="©2015 Beswell.com 百维阳光汽车服务"
         android:textColor="#ffffff"
-        android:textSize="12dp"
+        android:textSize="@dimen/copyright_info"
+        android:singleLine="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"/>
 
-   <!-- <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:text="Beswell"
-        android:textSize="45dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="101dp"
-        android:textStyle="bold|italic"
-        android:textColor="#1c86ee" />-->
 </RelativeLayout>
 
 <!--

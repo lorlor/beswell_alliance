@@ -51,20 +51,24 @@
             android:layout_height="wrap_content"
             android:background="@drawable/hist_style"
             android:textColor="#ffffff"
-            android:text="查询"
+            android:text="查 询"
             android:layout_marginRight="5dp"
-            android:layout_marginLeft="5dp" />
+            android:layout_marginLeft="5dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp" />
 
         <Button
             android:id="@+id/hist_back"
             android:layout_weight="1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:text="返回"
+            android:text="返 回"
             android:textColor="#ffffff"
             android:background="@drawable/hist_style"
             android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp" />
+            android:layout_marginRight="5dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="14dp" />
 
     </LinearLayout>
 

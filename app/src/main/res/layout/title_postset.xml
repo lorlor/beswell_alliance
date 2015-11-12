@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:background="#006cbf"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <TextView
+        android:text="开卡记录查询"
+        android:layout_marginLeft="26px"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:textColor="#fff"
+        android:layout_width="wrap_content"
+        android:textSize="20sp"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

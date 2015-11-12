@@ -10,7 +10,8 @@
                 android:color="#f0ad4e"/>
 
             <size
-                android:width="90px"/>
+                android:width="90dp"
+                android:height="45dp"/>
 
         </shape>
     </item>
@@ -29,7 +30,8 @@
                 android:gradientRadius="140px"/>
 
             <size
-                android:width="90px"/>
+                android:width="90dp"
+                android:height="45dp"/>
 
         </shape>
     </item>

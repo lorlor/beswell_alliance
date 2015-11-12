@@ -29,7 +29,7 @@ import java.io.IOException;
  */
 public class History extends DialogFragment {
 
-    String IP = "192.168.0.101";
+    String IP = "192.168.0.100";
 
     Bundle records;
 
@@ -82,23 +82,25 @@ public class History extends DialogFragment {
                 st_str = st_y + "-" + st_m + "-" + st_d;
 
                 int et_y = et.getYear();
-                int et_m = st.getMonth() + 1;
+                int et_m = et.getMonth() + 1;
                 int et_d = et.getDayOfMonth();
                 et_str = et_y + "-" + et_m + "-" + et_d;
                 boolean flag = false;
                 if(st_y > et_y){
 //                    System.out.println("Invalid date");
-                    AlertDialog dialog = new AlertDialog.Builder(getActivity())
-                            .setMessage("起始日期应早于或等于截止日期").create();
-                    dialog.setCanceledOnTouchOutside(true);
-                    dialog.show();
+//                    AlertDialog dialog = new AlertDialog.Builder(getActivity())
+//                            .setMessage("起始日期应早于或等于截止日期").create();
+//                    dialog.setCanceledOnTouchOutside(true);
+//                    dialog.show();
+                    Toast.makeText(getActivity().getApplicationContext(), "起始日期应早于或等于截止日期", Toast.LENGTH_SHORT).show();
                 }
                 else if(st_y == et_y){
                     if(st_m > et_m){
-                        AlertDialog dialog = new AlertDialog.Builder(getActivity())
-                                .setMessage("起始日期应早于或等于截止日期").create();
-                        dialog.setCanceledOnTouchOutside(true);
-                        dialog.show();
+//                        AlertDialog dialog = new AlertDialog.Builder(getActivity())
+//                                .setMessage("起始日期应早于或等于截止日期").create();
+//                        dialog.setCanceledOnTouchOutside(true);
+//                        dialog.show();
+                        Toast.makeText(getActivity().getApplicationContext(), "起始日期应早于或等于截止日期", Toast.LENGTH_SHORT).show();
                     }
                     else if(st_m == et_m){
                         if(st_d <= et_d){
@@ -107,10 +109,11 @@ public class History extends DialogFragment {
                             flag =true;
                         }
                         else{
-                            AlertDialog dialog = new AlertDialog.Builder(getActivity())
-                                    .setMessage("起始日期应早于或等于截止日期").create();
-                            dialog.setCanceledOnTouchOutside(true);
-                            dialog.show();
+//                            AlertDialog dialog = new AlertDialog.Builder(getActivity())
+//                                    .setMessage("起始日期应早于或等于截止日期").create();
+//                            dialog.setCanceledOnTouchOutside(true);
+//                            dialog.show();
+                            Toast.makeText(getActivity().getApplicationContext(), "起始日期应早于或等于截止日期", Toast.LENGTH_SHORT).show();
                         }
                     }
                     else{
@@ -124,6 +127,8 @@ public class History extends DialogFragment {
                     et_str = et_y + "-" + et_m + "-" + et_d;
                     flag =true;
                 }
+                Log.d("Start String", st_str);
+                Log.d("Stop String", et_str);
                 if(flag) {
                     UserAsyncTask uat = new UserAsyncTask();
                     uat.execute(IP);
