@@ -8,6 +8,7 @@
     tools:context="com.beswell.beswell_al.SetPostOps">
 
     <ScrollView
+        android:layout_alignParentTop="true"
         android:id="@+id/set_cont"
         android:layout_above="@+id/set_divider"
         android:layout_width="fill_parent"
@@ -16,13 +17,12 @@
         <RelativeLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:weightSum="1">
+            android:layout_height="match_parent">
 
             <!--1-->
             <TextView
                 android:id="@+id/shopName"
-                android:text=" 公司名称"
+                android:text="  公司名称"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:typeface="monospace"
@@ -38,23 +38,25 @@
                 android:layout_below="@+id/shopName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textScaleX="1.2"
                 android:textSize="16sp"
-                android:background="#888"
-                android:textColor="#fff"
-                android:paddingBottom="2dp"
-                android:paddingTop="2dp"
+                android:background="@drawable/set_post"
+                android:textColor="#777"
                 android:paddingLeft="13dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
-                android:minHeight="25dp" />
+                android:minHeight="30dp"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px" />
 
             <!--2-->
             <TextView
                 android:id="@+id/person"
                 android:layout_below="@+id/set_shopname"
-                android:text=" 联系人"
+                android:text="  联系人"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textScaleX="1.2"
                 android:typeface="monospace"
                 android:textColor="#000"
                 android:paddingTop="5dp"
@@ -66,21 +68,24 @@
                 android:id="@+id/set_contactperson"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#888"
+                android:textScaleX="1.2"
+                android:background="@drawable/set_post"
                 android:textSize="16sp"
-                android:textColor="#fff"
+                android:textColor="#777"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
-                android:paddingLeft="13dp"
+                android:paddingLeft="26px"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
-                android:minHeight="25dp" />
+                android:minHeight="30dp"
+                android:layout_marginRight="20px"
+                android:layout_marginLeft="20px" />
 
             <!--3-->
             <TextView
                 android:layout_below="@+id/set_contactperson"
                 android:id="@+id/phone"
-                android:text=" 联系电话"
+                android:text="  联系电话"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:typeface="monospace"
@@ -94,21 +99,24 @@
                 android:id="@+id/set_contactphone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#888"
+                android:textScaleX="1.2"
+                android:background="@drawable/set_post"
                 android:textSize="16sp"
-                android:textColor="#fff"
+                android:textColor="#777"
                 android:paddingBottom="2dp"
                 android:paddingTop="2dp"
                 android:paddingLeft="13dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
-                android:minHeight="25dp" />
+                android:minHeight="30dp"
+                android:layout_marginRight="20px"
+                android:layout_marginLeft="20px" />
 
             <!--4-->
             <TextView
                 android:layout_below="@+id/set_contactphone"
                 android:id="@+id/address"
-                android:text=" 详细地址"
+                android:text="  详细地址"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000"
@@ -122,21 +130,24 @@
                 android:id="@+id/set_shoploc"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#888"
+                android:textScaleX="1.2"
+                android:background="@drawable/set_post"
                 android:textSize="16sp"
-                android:textColor="#fff"
+                android:textColor="#777"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
                 android:paddingLeft="13dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
-                android:minHeight="25dp" />
+                android:minHeight="30dp"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px" />
 
             <!--5-->
             <TextView
                 android:layout_below="@+id/set_shoploc"
                 android:id="@+id/aa"
-                android:text=" A卡 外观洗车 消费次数"
+                android:text="  A卡 外观洗车 消费次数"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:typeface="monospace"
@@ -150,22 +161,25 @@
                 android:id="@+id/set_cca"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#888"
+                android:textScaleX="1.2"
+                android:background="@drawable/set_post"
                 android:textSize="16sp"
-                android:textColor="#fff"
+                android:textColor="#777"
                 android:paddingBottom="2dp"
                 android:paddingTop="2dp"
                 android:paddingLeft="13dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
-                android:minHeight="25dp"
-                android:gravity="start" />
+                android:minHeight="30dp"
+                android:gravity="start"
+                android:layout_marginRight="20px"
+                android:layout_marginLeft="20px" />
 
             <!--6-->
             <TextView
                 android:layout_below="@+id/set_cca"
                 android:id="@+id/as"
-                android:text=" A卡 标准洗车 消费次数"
+                android:text="  A卡 标准洗车 消费次数"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000"
@@ -179,21 +193,24 @@
                 android:id="@+id/set_cca2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#888"
+                android:textScaleX="1.2"
+                android:background="@drawable/set_post"
                 android:textSize="16sp"
-                android:textColor="#fff"
+                android:textColor="#777"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
                 android:paddingLeft="13dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
-                android:minHeight="25dp" />
+                android:minHeight="30dp"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px" />
 
             <!--7-->
             <TextView
                 android:layout_below="@+id/set_cca2"
                 android:id="@+id/bs"
-                android:text=" B卡 标准洗车 消费次数"
+                android:text="  B卡 标准洗车 消费次数"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:typeface="monospace"
@@ -207,22 +224,25 @@
                 android:id="@+id/set_ccb"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#888"
+                android:textScaleX="1.2"
+                android:background="@drawable/set_post"
                 android:textSize="16sp"
-                android:textColor="#fff"
+                android:textColor="#777"
                 android:paddingBottom="2dp"
                 android:paddingTop="2dp"
                 android:paddingLeft="13dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
-                android:minHeight="25dp" />
+                android:minHeight="30dp"
+                android:layout_marginRight="20px"
+                android:layout_marginLeft="20px" />
 
             <!--8-->
             <TextView
                 android:layout_below="@+id/set_ccb"
                 android:background="#fff"
                 android:id="@+id/state"
-                android:text=" 申请状态"
+                android:text="  申请状态"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000"
@@ -241,15 +261,18 @@
                 android:id="@+id/set_st"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#888"
+                android:textScaleX="1.2"
+                android:background="@drawable/set_post"
                 android:textSize="16sp"
-                android:textColor="#fff"
+                android:textColor="#eec900"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
                 android:paddingLeft="13dp"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
-                android:minHeight="25dp" />
+                android:minHeight="30dp"
+                android:layout_marginLeft="20px"
+                android:layout_marginRight="20px" />
 
 
         </RelativeLayout>

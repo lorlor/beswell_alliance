@@ -43,9 +43,10 @@
         android:layout_below="@+id/brand_name"
         android:layout_alignLeft="@+id/AlLoginPasswd"
         android:layout_alignStart="@+id/AlLoginPasswd"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="@dimen/usr_marginTop"
         android:layout_alignRight="@+id/AlLoginPasswd"
-        android:layout_alignEnd="@+id/AlLoginPasswd" />
+        android:layout_alignEnd="@+id/AlLoginPasswd"
+        android:layout_centerHorizontal="true"/>
 
     <EditText
         android:layout_width="wrap_content"
@@ -58,10 +59,9 @@
         android:background="@drawable/text_shape"
         android:paddingTop="8px"
         android:paddingBottom="8px"
+        android:layout_marginTop="@dimen/login_marginTop"
         android:layout_below="@+id/AlLoginUsername"
-        android:layout_alignRight="@+id/copyright_info"
-        android:layout_alignEnd="@+id/copyright_info"
-        android:layout_marginTop="@dimen/pwd_marginTop" />
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -86,67 +86,3 @@
         android:layout_centerHorizontal="true"/>
 
 </RelativeLayout>
-
-<!--
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="match_parent"
-    android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:background="#0065b3">
-
-    <ImageView
-        android:background="@drawable/beswell_all_pic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:scaleType="centerCrop"
-        android:scaleX="0.8"
-        android:scaleY="0.8"
-        android:cropToPadding="true" />
-
-    <TextView
-        android:id="@+id/brand_name"
-        android:text="阳光联盟"
-        android:textSize="22dp"
-        android:layout_gravity="center_horizontal"
-        android:textColor="#ffffff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/AlLoginUsername"
-        android:hint="用户名"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/text_shape" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:inputType="textPassword"
-        android:layout_gravity="center_horizontal"
-        android:id="@+id/AlLoginPasswd"
-        android:hint="密  码"
-        android:background="@drawable/text_shape" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="登  录"
-        android:id="@+id/AlLoginBtn"
-        android:textColor="#ffffff"
-        android:background="@drawable/button_login"
-        android:layout_gravity="center_horizontal"/>
-
-    <TextView
-        android:id="@+id/copyright_info"
-        android:text="©2015 Beswell.com 百维阳光汽车服务"
-        android:textColor="#ffffff"
-        android:textSize="12dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginBottom="2px"/>
-
-</LinearLayout>-->

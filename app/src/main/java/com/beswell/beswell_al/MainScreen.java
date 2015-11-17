@@ -223,7 +223,7 @@ public class MainScreen extends Activity {
         Log.d("WH", dm.widthPixels + "*****" + dm.heightPixels + "");
         ViewGroup.LayoutParams lp = findViewById(R.id.content).getLayoutParams();
         lp.width = dm.widthPixels;
-        lp.height = (int)getResources().getDimension(R.dimen.refresh_len);
+//        lp.height = (int)getResources().getDimension(R.dimen.refresh_len);
 
         findViewById(R.id.content).setLayoutParams(lp);
     }

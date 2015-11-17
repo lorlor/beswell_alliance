@@ -80,6 +80,8 @@ public class SetPostOps extends Activity {
         ccb = (EditText)findViewById(R.id.set_ccb);
         st = (EditText)findViewById(R.id.set_st);
 
+        setBackground();
+
         submit = (Button)findViewById(R.id.set_confirm);
 
         intent = getIntent();
@@ -97,6 +99,32 @@ public class SetPostOps extends Activity {
         });
     }
 
+
+    public void setBackground(){
+        shopname.setBackgroundResource(R.drawable.set_post);
+        shopname.setPadding(12, 4, 0, 4);
+
+        contactperson.setBackgroundResource(R.drawable.set_post);
+        contactperson.setPadding(12, 4, 0, 4);
+
+        contactphone.setBackgroundResource(R.drawable.set_post);
+        contactphone.setPadding(12, 4, 0, 4);
+
+        shoploc.setBackgroundResource(R.drawable.set_post);
+        shoploc.setPadding(12, 4, 0, 4);
+
+        cca.setBackgroundResource(R.drawable.set_post);
+        cca.setPadding(12, 4, 0, 4);
+
+        cca2.setBackgroundResource(R.drawable.set_post);
+        cca2.setPadding(12, 4, 0, 4);
+
+        ccb.setBackgroundResource(R.drawable.set_post);
+        ccb.setPadding(12, 4, 0, 4);
+
+        st.setBackgroundResource(R.drawable.set_post);
+        st.setPadding(12, 4, 0, 4);
+    }
 
 /*    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -203,6 +231,7 @@ public class SetPostOps extends Activity {
         cca2.setText(elems[5]);
         ccb.setText(elems[6]);
         st.setText(getState(elems[7]));
+        Log.d("State of Check >>>>>>>> ", elems[7] + "");
     }
 
     public String getState(String type){

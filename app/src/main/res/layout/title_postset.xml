@@ -6,7 +6,7 @@
     android:layout_height="fill_parent">
 
     <TextView
-        android:text="开卡记录查询"
+        android:text="修改申请信息"
         android:layout_marginLeft="26px"
         android:layout_gravity="center_vertical"
         android:gravity="center_vertical"

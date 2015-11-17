@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_horizontal_margin">64dp</dimen>
+    <dimen name="login_marginTop">20dp</dimen>
+    <dimen name="usr_marginTop">120dp</dimen>
+    <dimen name="pwd_marginTop">20dp</dimen>
+    <dimen name="copyright_info">10sp</dimen>
+    <dimen name="refresh_len">435dp</dimen>
+    <dimen name="query_len">500px</dimen>
+</resources>

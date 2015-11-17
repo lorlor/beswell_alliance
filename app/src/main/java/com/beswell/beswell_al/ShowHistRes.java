@@ -67,6 +67,15 @@ public class ShowHistRes extends Activity {
         hist_star = (TextView)findViewById(R.id.hist_star);
         hist_comment = (TextView)findViewById(R.id.hist_comment);
 
+        hist_id.setPadding(26, 0, 0, 0);
+        hist_time.setPadding(26, 0, 0, 0);
+        hist_plate.setPadding(26, 0, 0, 0);
+        hist_cardcode.setPadding(26, 0, 0, 0);
+        hist_cctype.setPadding(26, 0, 0, 0);
+        hist_cctimes.setPadding(26, 0, 0, 0);
+        hist_star.setPadding(26, 0, 0, 0);
+        hist_comment.setPadding(26, 0, 0, 0);
+
         count = (TextView)findViewById(R.id.total_count);
         cccount = (TextView)findViewById(R.id.total_cccount);
 
@@ -77,12 +86,14 @@ public class ShowHistRes extends Activity {
             String[] item = str.split("  ");
             cccount_i += Integer.parseInt(item[3]);
         }
-        count.setText("数量合计：" + count_i);
-        cccount.setText("洗车次数合计：" + cccount_i);
+        count.setText("数量：" + count_i);
+        cccount.setText("洗车次数：" + cccount_i);
+        count.setPadding(26, 0, 0, 0);
+        cccount.setPadding(26, 0, 0, 0);
 
         setContent(records, 0);
 
-        adapter = new ArrayAdapter<String>(getApplicationContext(), android.R.layout.simple_list_item_1/*R.layout.spinner_item*/);
+        adapter = new ArrayAdapter<String>(getApplicationContext(), /*android.R.layout.simple_list_item_1*/R.layout.spinner_item);
         for (int i = 0; i < records.size(); i++) {
             int temp = i + 1;
             adapter.add("第" + temp + "页");

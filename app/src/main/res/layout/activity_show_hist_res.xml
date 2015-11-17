@@ -15,30 +15,32 @@
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#5e5e5e">
+        android:background="#0065b3"
+        android:minHeight="50dp"
+        android:gravity="center_vertical">
 
         <TextView
             android:id="@+id/total_count"
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:textSize="20sp"
-            android:textColor="#fff" />
+            android:textSize="22sp"
+            android:textColor="#eec900" />
 
         <TextView
             android:id="@+id/total_cccount"
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="3"
-            android:textSize="20sp"
-            android:textColor="#fff" />
+            android:textSize="22sp"
+            android:textColor="#eec900" />
 
         </LinearLayout>
 
     <ImageView
         android:layout_width="fill_parent"
         android:layout_height="2dp"
-        android:background="#d7d7d7"/>
+        android:background="#eee"/>
 
     <ScrollView
         android:layout_weight="4"
@@ -50,81 +52,127 @@
             android:orientation="vertical"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:background="#1c86ee">
+            android:background="#fff">
             <TextView
                 android:id="@+id/hist_id"
-                android:paddingLeft="5mm"
+                android:paddingLeft="26px"
                 android:layout_marginTop="12px"
                 android:textSize="26sp"
-                android:textColor="#000"
-                android:background="@drawable/text_shape"
+                android:textColor="#444"
                 android:layout_width="fill_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp" />
+
+            <ImageView
+                android:background="#eee"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp" />
 
             <TextView
                 android:id="@+id/hist_time"
-                android:paddingLeft="5mm"
+                android:paddingLeft="26px"
                 android:layout_marginTop="12px"
                 android:textSize="20sp"
-                android:textColor="#080808"
-                android:background="@drawable/text_shape"
+                android:textColor="#777"
                 android:layout_width="fill_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp" />
+
+            <ImageView
+                android:background="#eee"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp" />
+
             <TextView
                 android:id="@+id/hist_plate"
-                android:paddingLeft="5mm"
+                android:paddingLeft="26px"
                 android:layout_marginTop="12px"
                 android:textSize="20sp"
-                android:textColor="#080808"
-                android:background="@drawable/text_shape"
+                android:textColor="#777"
                 android:layout_width="fill_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp" />
+
+            <ImageView
+                android:background="#eee"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp" />
+
             <TextView
                 android:id="@+id/hist_cardcode"
-                android:paddingLeft="5mm"
+                android:paddingLeft="26px"
                 android:layout_marginTop="12px"
                 android:textSize="20sp"
-                android:textColor="#080808"
-                android:background="@drawable/text_shape"
+                android:textColor="#777"
                 android:layout_width="fill_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp" />
+
+            <ImageView
+                android:background="#eee"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp" />
+
             <TextView
                 android:id="@+id/hist_cctype"
-                android:paddingLeft="5mm"
+                android:paddingLeft="26px"
                 android:layout_marginTop="12px"
                 android:textSize="20sp"
-                android:textColor="#080808"
-                android:background="@drawable/text_shape"
+                android:textColor="#777"
                 android:layout_width="fill_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp" />
+
+            <ImageView
+                android:background="#eee"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp" />
+
             <TextView
                 android:id="@+id/hist_cctimes"
-                android:paddingLeft="5mm"
+                android:paddingLeft="26px"
                 android:layout_marginTop="12px"
                 android:textSize="20sp"
-                android:textColor="#080808"
-                android:background="@drawable/text_shape"
+                android:textColor="#777"
                 android:layout_width="fill_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp" />
+
+            <ImageView
+                android:background="#eee"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp" />
+
             <TextView
                 android:id="@+id/hist_star"
-                android:paddingLeft="5mm"
+                android:paddingLeft="26px"
                 android:layout_marginTop="12px"
                 android:textSize="20sp"
-                android:textColor="#080808"
-                android:background="@drawable/text_shape"
+                android:textColor="#777"
                 android:layout_width="fill_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:layout_marginBottom="10dp" />
+
+            <ImageView
+                android:background="#eee"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp" />
+
             <TextView
                 android:id="@+id/hist_comment"
-                android:paddingLeft="5mm"
+                android:paddingLeft="26px"
                 android:layout_marginTop="12px"
                 android:textSize="20sp"
-                android:textColor="#080808"
+                android:textColor="#777"
                 android:background="@drawable/text_shape"
                 android:layout_width="fill_parent"
                 android:layout_height="match_parent"
                 android:layout_marginBottom="10dp" />
+
+            <ImageView
+                android:background="#eee"
+                android:layout_width="fill_parent"
+                android:layout_height="1dp" />
 
         </LinearLayout>
 
@@ -136,14 +184,15 @@
         android:layout_weight="1"
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:minHeight="60dp">
 
         <Button
             android:id="@+id/hist_prevPage"
             android:layout_weight="1"
             android:text="上一页"
             android:textColor="#fff"
-            android:background="#1c86ee"
+            android:background="@drawable/prev_style"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:textSize="16sp"
@@ -155,7 +204,7 @@
             android:layout_weight="1"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
-            android:background="#00bfff"
+            android:background="@drawable/spinner_shape"
             android:gravity="center_vertical|center|center_horizontal"
             android:textAlignment="gravity"
             android:layout_gravity="center"></Spinner>
@@ -165,7 +214,7 @@
             android:layout_weight="1"
             android:text="下一页"
             android:textColor="#fff"
-            android:background="#1c86ee"
+            android:background="@drawable/next_style"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
             android:textSize="16sp"
