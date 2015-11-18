@@ -45,33 +45,33 @@ public class ShowQueryRes extends Activity {
 
         initLV();
 
-        intent = getIntent();
-        final Bundle raw = intent.getBundleExtra("query");
-
-        Log.d("SQS Debug", raw.toString());
-        setData(99, raw);
-        refresh();
+//        intent = getIntent();
+//        final Bundle raw = intent.getBundleExtra("query");
+//
+//        Log.d("SQS Debug", raw.toString());
+//        setData(99, raw);
+//        refresh();
         all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setData(99, raw);
-                refresh();
+//                setData(99, raw);
+//                refresh();
             }
         });
 
         checked.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setData(1, raw);
-                refresh();
+//                setData(1, raw);
+//                refresh();
             }
         });
 
         unchecked.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setData(0, raw);
-                refresh();
+//                setData(0, raw);
+//                refresh();
             }
         });
     }

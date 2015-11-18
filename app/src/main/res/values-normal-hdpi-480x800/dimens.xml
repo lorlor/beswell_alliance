@@ -4,9 +4,9 @@
          would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively). -->
     <dimen name="activity_horizontal_margin">64dp</dimen>
     <dimen name="login_marginTop">12dp</dimen>
-    <dimen name="usr_marginTop">60dp</dimen>
+    <dimen name="usr_marginTop">45dp</dimen>
     <dimen name="pwd_marginTop">12dp</dimen>
     <dimen name="copyright_info">10sp</dimen>
-    <dimen name="refresh_len">440px</dimen>
+    <dimen name="refresh_len">290dp</dimen>
     <dimen name="query_len">500px</dimen>
 </resources>

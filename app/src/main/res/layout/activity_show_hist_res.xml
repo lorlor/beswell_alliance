@@ -184,8 +184,8 @@
         android:layout_weight="1"
         android:orientation="horizontal"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:minHeight="60dp">
+        android:layout_height="40dp"
+        android:minHeight="30dp">
 
         <Button
             android:id="@+id/hist_prevPage"
@@ -197,7 +197,8 @@
             android:layout_height="match_parent"
             android:textSize="16sp"
             android:paddingTop="5dp"
-            android:paddingBottom="5dp" />
+            android:paddingBottom="5dp"
+            android:minHeight="50dp" />
 
         <Spinner
             android:id="@+id/hist_item"
@@ -207,7 +208,8 @@
             android:background="@drawable/spinner_shape"
             android:gravity="center_vertical|center|center_horizontal"
             android:textAlignment="gravity"
-            android:layout_gravity="center"></Spinner>
+            android:layout_gravity="center"
+            android:minHeight="50dp"></Spinner>
 
         <Button
             android:id="@+id/hist_nextPage"
@@ -219,7 +221,8 @@
             android:layout_height="match_parent"
             android:textSize="16sp"
             android:paddingTop="5dp"
-            android:paddingBottom="5dp" />
+            android:paddingBottom="5dp"
+            android:minHeight="50dp" />
 
     </LinearLayout>
 

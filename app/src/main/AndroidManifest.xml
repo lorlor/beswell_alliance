@@ -35,6 +35,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity
             android:name=".MainScreen"
@@ -50,6 +51,7 @@
             android:name=".ShowQueryRes"
             android:label="@string/title_activity_show_query_res"
             android:theme="@style/QueryResStyle">
+
         </activity>
         <activity
             android:name=".SetPostOps"

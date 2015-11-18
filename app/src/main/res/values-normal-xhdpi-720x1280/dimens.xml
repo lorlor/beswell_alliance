@@ -2,9 +2,9 @@
 <resources>
     <dimen name="activity_horizontal_margin">64dp</dimen>
     <dimen name="login_marginTop">20dp</dimen>
-    <dimen name="usr_marginTop">120dp</dimen>
+    <dimen name="usr_marginTop">90dp</dimen>
     <dimen name="pwd_marginTop">20dp</dimen>
     <dimen name="copyright_info">10sp</dimen>
-    <dimen name="refresh_len">385dp</dimen>
-    <dimen name="query_len">500px</dimen>
+    <dimen name="refresh_len">400dp</dimen>
+    <dimen name="query_len">490dp</dimen>
 </resources>

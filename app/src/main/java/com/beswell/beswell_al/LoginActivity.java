@@ -1,6 +1,7 @@
 package com.beswell.beswell_al;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -39,8 +40,6 @@ public class LoginActivity extends Activity {
     private EditText passwd;
     private Button login;
 
-    public TextView tv;
-
     public String username_str;
     public String passwd_str;
 
@@ -57,10 +56,7 @@ public class LoginActivity extends Activity {
         username = (EditText)findViewById(R.id.AlLoginUsername);
         passwd = (EditText)findViewById(R.id.AlLoginPasswd);
         login = (Button)findViewById(R.id.AlLoginBtn);
-        cm = (ConnectivityManager)getSystemService(CONNECTIVITY_SERVICE);
-        ni = cm.getActiveNetworkInfo();
-
-        tv = new TextView(this);
+        cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,10 +68,16 @@ public class LoginActivity extends Activity {
                     Toast.makeText(getApplicationContext(), "请输入用户名和密码", Toast.LENGTH_SHORT).show();
                 }
                 else {
-                    if (ni.isAvailable()) {
-                        LoginAsyncTask lat = new LoginAsyncTask();
-                        lat.execute(IP);
-                    } else {
+                    if(cm.getActiveNetworkInfo() != null) {
+                        ni = cm.getActiveNetworkInfo();
+                        if (ni.isAvailable()) {
+                            LoginAsyncTask lat = new LoginAsyncTask();
+                            lat.execute(IP);
+                        } else {
+                            Toast.makeText(getApplicationContext(), "网络不可用，请检查网络是否连接", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                    else{
                         Toast.makeText(getApplicationContext(), "网络不可用，请检查网络是否连接", Toast.LENGTH_SHORT).show();
                     }
                 }

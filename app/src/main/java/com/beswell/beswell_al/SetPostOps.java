@@ -7,6 +7,7 @@ import android.location.LocationManager;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -15,6 +16,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.ksoap2.SoapEnvelope;
@@ -39,8 +41,17 @@ public class SetPostOps extends Activity {
     public EditText cca;
     public EditText cca2;
     public EditText ccb;
-    public EditText st;
+//    public EditText st;
     public Button submit;
+
+    public TextView tv_shopname;
+    public TextView tv_person;
+    public TextView tv_phone;
+    public TextView tv_shoploc;
+    public TextView tv_cca;
+    public TextView tv_cca2;
+    public TextView tv_ccb;
+    public TextView state;
 
     public Intent intent;
     public LocationManager lm;
@@ -78,7 +89,28 @@ public class SetPostOps extends Activity {
         cca = (EditText)findViewById(R.id.set_cca);
         cca2 = (EditText)findViewById(R.id.set_cca2);
         ccb = (EditText)findViewById(R.id.set_ccb);
-        st = (EditText)findViewById(R.id.set_st);
+//        st = (EditText)findViewById(R.id.set_st);
+
+        state = (TextView)findViewById(R.id.state);
+        tv_shopname = (TextView)findViewById(R.id.shopName);
+        tv_person = (TextView)findViewById(R.id.person);
+        tv_phone = (TextView)findViewById(R.id.phone);
+        tv_shoploc = (TextView)findViewById(R.id.address);
+        tv_cca = (TextView)findViewById(R.id.aa);
+        tv_cca2 = (TextView)findViewById(R.id.as);
+        tv_ccb = (TextView)findViewById(R.id.bs);
+
+        tv_shopname.setPadding(12, 4, 0, 4);
+        tv_person.setPadding(12, 4, 0, 4);
+        tv_phone.setPadding(12, 4, 0, 4);
+        tv_shoploc.setPadding(12, 4, 0, 4);
+        tv_cca.setPadding(12, 4, 0, 4);
+        tv_cca.setText(Html.fromHtml("<font color=\"#111\">A卡</font> <font color=\"#777777\">外观洗车 消费次数</font>"));
+        tv_cca2.setPadding(12, 4, 0, 4);
+        tv_cca2.setText(Html.fromHtml("<font color=\"#111\">A卡</font> <font color=\"#777777\">标准洗车 消费次数</font>"));
+        tv_ccb.setPadding(12, 4, 0, 4);
+        tv_ccb.setText(Html.fromHtml("<font color=\"#111\">B卡</font> <font color=\"#777777\">标准洗车 消费次数</font>"));
+        state.setPadding(12, 4, 0, 4);
 
         setBackground();
 
@@ -122,8 +154,8 @@ public class SetPostOps extends Activity {
         ccb.setBackgroundResource(R.drawable.set_post);
         ccb.setPadding(12, 4, 0, 4);
 
-        st.setBackgroundResource(R.drawable.set_post);
-        st.setPadding(12, 4, 0, 4);
+//        st.setBackgroundResource(R.drawable.set_post);
+//        st.setPadding(12, 4, 0, 4);
     }
 
 /*    @Override
@@ -181,7 +213,7 @@ public class SetPostOps extends Activity {
             int cca_i = Integer.parseInt(cca.getText().toString());
             int cca2_i = Integer.parseInt(cca2.getText().toString());
             int ccb_i = Integer.parseInt(ccb.getText().toString());
-            String st_str = st.getText().toString();
+//            String st_str = st.getText().toString();
 
             SoapObject request = new SoapObject(nameSpace, methodName);
             // bind parameters here.
@@ -230,18 +262,19 @@ public class SetPostOps extends Activity {
         cca.setText(elems[4]);
         cca2.setText(elems[5]);
         ccb.setText(elems[6]);
-        st.setText(getState(elems[7]));
+//        st.setText(getState(elems[7]));
+        state.setText(Html.fromHtml("<font size=\"16dp\">审核状态：</font>" + getState(elems[7])));
         Log.d("State of Check >>>>>>>> ", elems[7] + "");
     }
 
     public String getState(String type){
         switch (type){
             case "0":
-                return "未审核";
+                return "<font color=\"red\">未审核</font>";
             case "1":
-                return "已审核";
+                return "<font color=\"green\">已审核</font>";
             default:
-                return "未知状态";
+                return "<font color=\"green\">未知状态</font>";
         }
     }
 }

@@ -4,7 +4,7 @@
         <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
             <corners
-                android:radius="14dp"/>
+                android:radius="12px"/>
 
             <solid
                 android:color="#f0ad4e"/>
@@ -20,7 +20,7 @@
         <shape xmlns:android="http://schemas.android.com/apk/res/android">
 
             <corners
-                android:radius="14dp"/>
+                android:radius="12px"/>
 
             <gradient
                 android:centerColor="#f0ad4e"

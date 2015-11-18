@@ -12,7 +12,9 @@
         android:id="@+id/set_cont"
         android:layout_above="@+id/set_divider"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="13dp"
+        android:layout_marginRight="13dp">
 
         <RelativeLayout
             android:orientation="vertical"
@@ -22,7 +24,7 @@
             <!--1-->
             <TextView
                 android:id="@+id/shopName"
-                android:text="  公司名称"
+                android:text="公司名称"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:typeface="monospace"
@@ -32,6 +34,7 @@
                 android:gravity="center_vertical"
                 android:paddingTop="2dp"
                 android:paddingBottom="2dp"
+                android:paddingLeft="12dp"
                 android:textSize="16sp" />
             <EditText
                 android:id="@+id/set_shopname"
@@ -51,9 +54,10 @@
 
             <!--2-->
             <TextView
+                android:layout_marginTop="6dp"
                 android:id="@+id/person"
                 android:layout_below="@+id/set_shopname"
-                android:text="  联系人"
+                android:text="联系人"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textScaleX="1.2"
@@ -83,9 +87,10 @@
 
             <!--3-->
             <TextView
+                android:layout_marginTop="6dp"
                 android:layout_below="@+id/set_contactperson"
                 android:id="@+id/phone"
-                android:text="  联系电话"
+                android:text="联系电话"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:typeface="monospace"
@@ -114,9 +119,10 @@
 
             <!--4-->
             <TextView
+                android:layout_marginTop="6dp"
                 android:layout_below="@+id/set_contactphone"
                 android:id="@+id/address"
-                android:text="  详细地址"
+                android:text="详细地址"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000"
@@ -145,9 +151,10 @@
 
             <!--5-->
             <TextView
+                android:layout_marginTop="6dp"
                 android:layout_below="@+id/set_shoploc"
                 android:id="@+id/aa"
-                android:text="  A卡 外观洗车 消费次数"
+                android:text="A卡 外观洗车 消费次数"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:typeface="monospace"
@@ -177,9 +184,10 @@
 
             <!--6-->
             <TextView
+                android:layout_marginTop="6dp"
                 android:layout_below="@+id/set_cca"
                 android:id="@+id/as"
-                android:text="  A卡 标准洗车 消费次数"
+                android:text="A卡 标准洗车 消费次数"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000"
@@ -208,9 +216,10 @@
 
             <!--7-->
             <TextView
+                android:layout_marginTop="6dp"
                 android:layout_below="@+id/set_cca2"
                 android:id="@+id/bs"
-                android:text="  B卡 标准洗车 消费次数"
+                android:text="B卡 标准洗车 消费次数"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:typeface="monospace"
@@ -239,10 +248,11 @@
 
             <!--8-->
             <TextView
+                android:layout_marginTop="6dp"
                 android:layout_below="@+id/set_ccb"
                 android:background="#fff"
                 android:id="@+id/state"
-                android:text="  申请状态"
+                android:text="申请状态"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="#000"
@@ -255,7 +265,7 @@
                 android:layout_alignParentStart="true"
                 android:textSize="16sp" />
 
-            <EditText
+<!--            <EditText
                 android:layout_below="@+id/state"
                 android:editable="false"
                 android:id="@+id/set_st"
@@ -272,7 +282,7 @@
                 android:layout_marginBottom="2dp"
                 android:minHeight="30dp"
                 android:layout_marginLeft="20px"
-                android:layout_marginRight="20px" />
+                android:layout_marginRight="20px" />-->
 
 
         </RelativeLayout>
@@ -296,7 +306,10 @@
         android:textColor="#fff"
         android:layout_marginBottom="10dp"
         android:layout_above="@+id/cr_infoq"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/set_cont"
+        android:layout_alignStart="@+id/set_cont"
+        android:layout_alignRight="@+id/set_cont"
+        android:layout_alignEnd="@+id/set_cont" />
 
     <TextView
         android:id="@+id/cr_infoq"

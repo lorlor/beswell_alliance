@@ -5,6 +5,6 @@
     <dimen name="usr_marginTop">120dp</dimen>
     <dimen name="pwd_marginTop">20dp</dimen>
     <dimen name="copyright_info">10sp</dimen>
-    <dimen name="refresh_len">435dp</dimen>
-    <dimen name="query_len">500px</dimen>
+    <dimen name="refresh_len">430dp</dimen>
+    <dimen name="query_len">530dp</dimen>
 </resources>

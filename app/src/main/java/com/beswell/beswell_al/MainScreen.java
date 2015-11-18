@@ -6,6 +6,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.AudioManager;
 import android.media.SoundPool;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
@@ -73,6 +75,9 @@ public class MainScreen extends Activity {
     PowerManager pm;
     PowerManager.WakeLock wl;
 
+    ConnectivityManager cm = null;
+    NetworkInfo ni = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,6 +101,8 @@ public class MainScreen extends Activity {
         pm = (PowerManager)getSystemService(Context.POWER_SERVICE);
         wl = pm.newWakeLock(PowerManager.SCREEN_DIM_WAKE_LOCK, "Refresh");
 
+        cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+
         Intent intent = getIntent();
         Alid = intent.getStringExtra("Alid");
         hash = intent.getStringExtra("hash");
@@ -112,16 +119,38 @@ public class MainScreen extends Activity {
         alset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SetAsyncTask sat = new SetAsyncTask();
-                sat.execute(IP);
+                if(cm.getActiveNetworkInfo() != null) {
+                    ni = cm.getActiveNetworkInfo();
+                    if(ni.isAvailable()) {
+                        SetAsyncTask sat = new SetAsyncTask();
+                        sat.execute(IP);
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(), "网络不可用，请检查网络连接", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "网络不可用，请检查网络连接", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
         alquery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                QueryAsyncTask qat = new QueryAsyncTask();
-                qat.execute(IP);
+                if(cm.getActiveNetworkInfo() != null) {
+                    ni = cm.getActiveNetworkInfo();
+                    if(ni.isAvailable()) {
+                        QueryAsyncTask qat = new QueryAsyncTask();
+                        qat.execute(IP);
+                    }
+                    else{
+                        Toast.makeText(getApplicationContext(), "网络不可用，请检查网络连接", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "网络不可用，请检查网络连接", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

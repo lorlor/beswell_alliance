@@ -72,7 +72,10 @@
         android:background="@drawable/login_style"
         android:layout_marginTop="@dimen/login_marginTop"
         android:layout_below="@+id/AlLoginPasswd"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignLeft="@+id/AlLoginPasswd"
+        android:layout_alignStart="@+id/AlLoginPasswd"
+        android:layout_alignRight="@+id/AlLoginPasswd"
+        android:layout_alignEnd="@+id/AlLoginPasswd" />
 
     <TextView
         android:id="@+id/copyright_info"
