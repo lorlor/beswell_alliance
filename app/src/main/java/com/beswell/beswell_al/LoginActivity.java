@@ -7,19 +7,17 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import com.umeng.analytics.AnalyticsConfig;
+import com.umeng.analytics.MobclickAgent;
 
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
@@ -31,10 +29,14 @@ import org.xmlpull.v1.XmlPullParserException;
 import java.io.IOException;
 import java.security.MessageDigest;
 
+/*
+* 这是【阳光联盟】的入口Activity，通过在该页面上输入登录名及密码进行下一步操作。
+* 如果验证正确，则进入内容操作；
+* 如果验证失败，则通过Toast提示验证失败以进行重新验证。*/
 
 public class LoginActivity extends Activity {
 
-    static String IP = "192.168.0.100";
+    static String IP = "192.168.0.101";
 
     private EditText username;
     private EditText passwd;
@@ -43,6 +45,9 @@ public class LoginActivity extends Activity {
     public String username_str;
     public String passwd_str;
 
+    /**
+     * ConnectivityManager和NetworkInfo的配合可以用来检查当前手机是否联网、联网状态以及网络类型。
+     */
     ConnectivityManager cm;
     NetworkInfo ni;
 
@@ -53,9 +58,16 @@ public class LoginActivity extends Activity {
 
         setContentView(R.layout.activity_login);
 
-        username = (EditText)findViewById(R.id.AlLoginUsername);
-        passwd = (EditText)findViewById(R.id.AlLoginPasswd);
-        login = (Button)findViewById(R.id.AlLoginBtn);
+        /**
+         * 下面两行添加的是友盟的两个API，用以监控App的运行情况，具体的内容可以到友盟的官网查看。
+         * 这里所使用的AppKey，是我自己申请账号中反馈回来的，请记得修改此处的值。
+         */
+        AnalyticsConfig.setAppkey(this, "565265b367e58e8b83004709");
+        AnalyticsConfig.setChannel("Beswell_alliance_site");
+
+        username = (EditText)findViewById(R.id.et_login_username);
+        passwd = (EditText)findViewById(R.id.et_login_passwd);
+        login = (Button)findViewById(R.id.btn_login);
         cm = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
 
         login.setOnClickListener(new View.OnClickListener() {
@@ -64,10 +76,16 @@ public class LoginActivity extends Activity {
                 username_str = username.getText().toString();
                 passwd_str = passwd.getText().toString();
 
+                /**
+                 * 判断用户是否输入了信息，以及手机是否联网
+                 */
+
                 if(username_str.equals("") || passwd_str.equals("")){
                     Toast.makeText(getApplicationContext(), "请输入用户名和密码", Toast.LENGTH_SHORT).show();
                 }
                 else {
+                    // 用户输入【不】为空
+
                     if(cm.getActiveNetworkInfo() != null) {
                         ni = cm.getActiveNetworkInfo();
                         if (ni.isAvailable()) {
@@ -86,6 +104,23 @@ public class LoginActivity extends Activity {
     }
 
     @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
+
+    @Override
+    /**
+     * onKeyDown和DialogInterface.OnClickListener两个函数进行配合，
+     * 用来在程序中处理返回事件，由于此处是登录界面，故在处在返回事件时弹出
+     * 一个提示窗口告知用户将推出程序
+     */
     public boolean onKeyDown(int keyCode, KeyEvent event)
     {
         if (keyCode == KeyEvent.KEYCODE_BACK )
@@ -148,6 +183,10 @@ public class LoginActivity extends Activity {
         return super.onOptionsItemSelected(item);
     }*/
 
+    /**
+     * 所有的网络异步任务都需要在线程当中进行，同时在非UI线程中不能更改UI控件的内容。
+     * 故此，程序中的所有涉及WebService的操作都自定义异步类继承自AsyncTask<>
+     */
     class LoginAsyncTask extends AsyncTask<String, Void, String>{
 
         String retValue = null;
@@ -226,6 +265,9 @@ public class LoginActivity extends Activity {
         }
     }
 
+    /**
+     * 对于输入的密码明文进行MD5加密
+     */
     public static String MD5(String input) throws Exception {
         MessageDigest md5 = null;
         try {

@@ -2,11 +2,7 @@ package com.beswell.beswell_al;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -15,6 +11,8 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.umeng.analytics.MobclickAgent;
 
 
 public class ShowHistRes extends Activity {
@@ -53,19 +51,19 @@ public class ShowHistRes extends Activity {
         intent = getIntent();
         records = intent.getBundleExtra("Result");
 
-        sp = (Spinner)findViewById(R.id.hist_item);
+        sp = (Spinner)findViewById(R.id.sp_showhist_item);
 
-        next = (Button)findViewById(R.id.hist_nextPage);
-        prev = (Button)findViewById(R.id.hist_prevPage);
+        next = (Button)findViewById(R.id.btn_showhist_next);
+        prev = (Button)findViewById(R.id.btn_showhist_prev);
 
-        hist_id = (TextView)findViewById(R.id.hist_id);
-        hist_time = (TextView)findViewById(R.id.hist_time);
-        hist_plate = (TextView)findViewById(R.id.hist_plate);
-        hist_cardcode = (TextView)findViewById(R.id.hist_cardcode);
-        hist_cctype = (TextView)findViewById(R.id.hist_cctype);
-        hist_cctimes = (TextView)findViewById(R.id.hist_cctimes);
-        hist_star = (TextView)findViewById(R.id.hist_star);
-        hist_comment = (TextView)findViewById(R.id.hist_comment);
+        hist_id = (TextView)findViewById(R.id.tv_showhist_id);
+        hist_time = (TextView)findViewById(R.id.tv_showhist_time);
+        hist_plate = (TextView)findViewById(R.id.tv_showhist_plate);
+        hist_cardcode = (TextView)findViewById(R.id.tv_showhist_cardcode);
+        hist_cctype = (TextView)findViewById(R.id.tv_showhist_cctype);
+        hist_cctimes = (TextView)findViewById(R.id.tv_showhist_cctimes);
+        hist_star = (TextView)findViewById(R.id.tv_showhist_star);
+        hist_comment = (TextView)findViewById(R.id.tv_showhist_comment);
 
         hist_id.setPadding(26, 0, 0, 0);
         hist_time.setPadding(26, 0, 0, 0);
@@ -76,8 +74,8 @@ public class ShowHistRes extends Activity {
         hist_star.setPadding(26, 0, 0, 0);
         hist_comment.setPadding(26, 0, 0, 0);
 
-        count = (TextView)findViewById(R.id.total_count);
-        cccount = (TextView)findViewById(R.id.total_cccount);
+        count = (TextView)findViewById(R.id.tv_showhist_totalcount);
+        cccount = (TextView)findViewById(R.id.tv_showhist_totalcccount);
 
         int count_i = records.size();
         int cccount_i = 0;
@@ -141,7 +139,19 @@ public class ShowHistRes extends Activity {
         });
     }
 
-/*
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.

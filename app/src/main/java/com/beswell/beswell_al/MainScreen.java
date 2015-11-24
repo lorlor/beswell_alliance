@@ -4,6 +4,9 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.net.ConnectivityManager;
@@ -12,14 +15,13 @@ import android.os.AsyncTask;
 import android.os.Handler;
 import android.os.Message;
 import android.os.PowerManager;
-import android.support.annotation.NonNull;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.text.Html;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -28,6 +30,8 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.umeng.analytics.MobclickAgent;
 
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
@@ -38,24 +42,26 @@ import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Timer;
 import java.util.TimerTask;
 
+/**
+ * 若在登录界面验证成功，则跳转至该Activity进行内容才操作。
+ */
+
 public class MainScreen extends Activity {
 
-    static String IP = "192.168.0.100";
+    static String IP = "192.168.0.101";
 
+    // timer and task are used in the loop of refreshing content ListView.
     public Timer timer = null;
     public TimerTask task = null;
 
     private TextView alid;
-    private Button alback;
-    private Button alhistory;
     private ImageButton alset;
+
+    private Button alhistory;
     private Button alquery;
 
     private TextView totalInfo;
@@ -72,9 +78,11 @@ public class MainScreen extends Activity {
 
     public int history = 0;
 
+    // pm and wl are used to keep screen of devices on when loop the state of "money"
     PowerManager pm;
     PowerManager.WakeLock wl;
 
+    // cm and ni are used to judge whether devices are connected to the Internet or not in which way.
     ConnectivityManager cm = null;
     NetworkInfo ni = null;
 
@@ -85,15 +93,15 @@ public class MainScreen extends Activity {
         setContentView(R.layout.activity_main_screen_up);
         getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.title_mainscreen);
 
-        alid = (TextView)findViewById(R.id.AlCCId);
+        alid = (TextView)findViewById(R.id.tv_mainscreen_AlCCId);
 //        alback = (Button)findViewById(R.id.AlCCBack);
-        alhistory = (Button)findViewById(R.id.AlCCHistory);
+        alhistory = (Button)findViewById(R.id.btn_mainscreen_cchistory);
         alset = (ImageButton)findViewById(R.id.AlCCSet);
-        alquery = (Button)findViewById(R.id.AlCCQuery);
-        totalInfo = (TextView)findViewById(R.id.AlCCTotalInfo);
+        alquery = (Button)findViewById(R.id.btn_mainscreen_ccquery);
+        totalInfo = (TextView)findViewById(R.id.tv_mainscreen_totalinfo);
         totalInfo.setText(Html.fromHtml("今日洗车 <font color=red>0</font> 辆"));
 
-        container = (ListView)findViewById(R.id.AlContent);
+        container = (ListView)findViewById(R.id.lv_mainscreen_content);
 
         sp = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
         sid = sp.load(MainScreen.this, R.raw.coin_message, 1);
@@ -116,22 +124,50 @@ public class MainScreen extends Activity {
             }
         });
 
-        alset.setOnClickListener(new View.OnClickListener() {
+//        alset.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                v.setScaleX((float)0.6);
+//                v.setScaleY((float)0.6);
+//                v.setBackgroundResource(R.drawable.ib_back_pressed);
+//                if(cm.getActiveNetworkInfo() != null) {
+//                    ni = cm.getActiveNetworkInfo();
+//                    if(ni.isAvailable()) {
+//                        SetAsyncTask sat = new SetAsyncTask();
+//                        sat.execute(IP);
+//                    }
+//                    else{
+//                        Toast.makeText(getApplicationContext(), "网络不可用，请检查网络连接", Toast.LENGTH_SHORT).show();
+//                    }
+//                }
+//                else{
+//                    Toast.makeText(getApplicationContext(), "网络不可用，请检查网络连接", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//        });
+        alset.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public void onClick(View v) {
-                if(cm.getActiveNetworkInfo() != null) {
-                    ni = cm.getActiveNetworkInfo();
-                    if(ni.isAvailable()) {
-                        SetAsyncTask sat = new SetAsyncTask();
-                        sat.execute(IP);
+            public boolean onTouch(View v, MotionEvent event) {
+                if(event.getAction() == MotionEvent.ACTION_DOWN) {
+                    v.setAlpha((float)0.8);
+                }
+                else if(event.getAction() == MotionEvent.ACTION_UP){
+                    v.setAlpha((float)1);
+                    if(cm.getActiveNetworkInfo() != null) {
+                        ni = cm.getActiveNetworkInfo();
+                        if(ni.isAvailable()) {
+                            SetAsyncTask sat = new SetAsyncTask();
+                            sat.execute(IP);
+                        }
+                        else{
+                            Toast.makeText(getApplicationContext(), "网络不可用，请检查网络连接", Toast.LENGTH_SHORT).show();
+                        }
                     }
                     else{
                         Toast.makeText(getApplicationContext(), "网络不可用，请检查网络连接", Toast.LENGTH_SHORT).show();
                     }
                 }
-                else{
-                    Toast.makeText(getApplicationContext(), "网络不可用，请检查网络连接", Toast.LENGTH_SHORT).show();
-                }
+                return true;
             }
         });
 
@@ -163,6 +199,7 @@ public class MainScreen extends Activity {
         super.onResume();
         wl.acquire();
         refresh();
+        MobclickAgent.onResume(this);
     }
 
     @Override
@@ -170,6 +207,7 @@ public class MainScreen extends Activity {
         super.onPause();
         timer.cancel();
         wl.release();
+        MobclickAgent.onPause(this);
     }
 
     @Override
@@ -224,6 +262,10 @@ public class MainScreen extends Activity {
         }
     };
 
+    /**
+     * 初始化ListView，这里的ListView的适配器（Adapter）使用的是自定义的ListViewAdapter。
+     * 在ListViewAdapter自定义了ListView中每个项（Item）的显示样式。
+     */
     public void initLV(){
         String[] gnr_info = new String[]{"One", "2015-12-13", "3"};
         String[] gnr_info1 = new String[]{"One", "2015-12-13", "3"};
@@ -248,15 +290,21 @@ public class MainScreen extends Activity {
         lva = new ListViewAdapter(this, list);;
         container.setAdapter(lva);
         DisplayMetrics dm = new DisplayMetrics();
+
+        /**
+         * 获取设备的长宽值，单位为像素（px）
+         */
         getWindowManager().getDefaultDisplay().getMetrics(dm);
-        Log.d("WH", dm.widthPixels + "*****" + dm.heightPixels + "");
-        ViewGroup.LayoutParams lp = findViewById(R.id.content).getLayoutParams();
+        ViewGroup.LayoutParams lp = findViewById(R.id.ll_mainscreen_content).getLayoutParams(); // 获取自定义的ListView中的布局
         lp.width = dm.widthPixels;
 //        lp.height = (int)getResources().getDimension(R.dimen.refresh_len);
 
-        findViewById(R.id.content).setLayoutParams(lp);
+        findViewById(R.id.ll_mainscreen_content).setLayoutParams(lp);
     }
 
+    /**
+     * Handler和Timer用来处理循环查询“到账通知”的状态
+     */
     public Handler handler = new Handler(){
         @Override
         public void handleMessage(Message msg) {
@@ -485,6 +533,9 @@ public class MainScreen extends Activity {
         }
     }
 
+    /**
+     * 通过“设置”按钮（即右上角的齿轮）调用该类实例
+     */
     class SetAsyncTask extends  AsyncTask<String, Void, String>{
 
         String retValue = null;
@@ -565,6 +616,9 @@ public class MainScreen extends Activity {
         }
     }
 
+    /**
+     * 审核记录查询，通过“开卡查询”按钮调用
+     */
     class QueryAsyncTask extends AsyncTask<String, Void, String>{
 
         String retValue = null;

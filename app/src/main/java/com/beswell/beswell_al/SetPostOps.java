@@ -5,12 +5,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.location.LocationManager;
 import android.os.AsyncTask;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -18,6 +15,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.umeng.analytics.MobclickAgent;
 
 import org.ksoap2.SoapEnvelope;
 import org.ksoap2.serialization.SoapObject;
@@ -32,7 +31,7 @@ import java.util.List;
 
 public class SetPostOps extends Activity {
 
-    String IP = "192.168.0.100";
+    String IP = "192.168.0.101";
 
     public EditText shopname;
     public EditText contactperson;
@@ -82,23 +81,23 @@ public class SetPostOps extends Activity {
             Log.d("No Provider", "------------------------------");
         }
 
-        shopname = (EditText)findViewById(R.id.set_shopname);
-        contactperson = (EditText)findViewById(R.id.set_contactperson);
-        contactphone = (EditText)findViewById(R.id.set_contactphone);
-        shoploc = (EditText)findViewById(R.id.set_shoploc);
-        cca = (EditText)findViewById(R.id.set_cca);
-        cca2 = (EditText)findViewById(R.id.set_cca2);
-        ccb = (EditText)findViewById(R.id.set_ccb);
+        shopname = (EditText)findViewById(R.id.et_setpost_shopname);
+        contactperson = (EditText)findViewById(R.id.et_setpost_person);
+        contactphone = (EditText)findViewById(R.id.et_setpost_phone);
+        shoploc = (EditText)findViewById(R.id.et_setpost_address);
+        cca = (EditText)findViewById(R.id.et_setpost_aa);
+        cca2 = (EditText)findViewById(R.id.et_setpost_as);
+        ccb = (EditText)findViewById(R.id.et_setpost_bs);
 //        st = (EditText)findViewById(R.id.set_st);
 
-        state = (TextView)findViewById(R.id.state);
-        tv_shopname = (TextView)findViewById(R.id.shopName);
-        tv_person = (TextView)findViewById(R.id.person);
-        tv_phone = (TextView)findViewById(R.id.phone);
-        tv_shoploc = (TextView)findViewById(R.id.address);
-        tv_cca = (TextView)findViewById(R.id.aa);
-        tv_cca2 = (TextView)findViewById(R.id.as);
-        tv_ccb = (TextView)findViewById(R.id.bs);
+        state = (TextView)findViewById(R.id.tv_setpost_state);
+        tv_shopname = (TextView)findViewById(R.id.tv_setpost_shopname);
+        tv_person = (TextView)findViewById(R.id.tv_setpost_person);
+        tv_phone = (TextView)findViewById(R.id.tv_setpost_phone);
+        tv_shoploc = (TextView)findViewById(R.id.tv_setpost_address);
+        tv_cca = (TextView)findViewById(R.id.tv_setpost_aa);
+        tv_cca2 = (TextView)findViewById(R.id.tv_setpost_as);
+        tv_ccb = (TextView)findViewById(R.id.tv_setpost_bs);
 
         tv_shopname.setPadding(12, 4, 0, 4);
         tv_person.setPadding(12, 4, 0, 4);
@@ -114,7 +113,7 @@ public class SetPostOps extends Activity {
 
         setBackground();
 
-        submit = (Button)findViewById(R.id.set_confirm);
+        submit = (Button)findViewById(R.id.btn_setpost_confirm);
 
         intent = getIntent();
         Bundle data = intent.getBundleExtra("set_res");
@@ -131,6 +130,17 @@ public class SetPostOps extends Activity {
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
 
     public void setBackground(){
         shopname.setBackgroundResource(R.drawable.set_post);

@@ -2,17 +2,16 @@ package com.beswell.beswell_al;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ListView;
+
+import com.umeng.analytics.MobclickAgent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,47 +36,58 @@ public class ShowQueryRes extends Activity {
         setContentView(R.layout.activity_show_query_res);
         getWindow().setFeatureInt(Window.FEATURE_CUSTOM_TITLE, R.layout.title_queryres);
 
-        all = (Button)findViewById(R.id.all);
-        checked = (Button)findViewById(R.id.checked);
-        unchecked = (Button)findViewById(R.id.unchecked);
+        all = (Button)findViewById(R.id.btn_showquery_all);
+        checked = (Button)findViewById(R.id.btn_showquery_checked);
+        unchecked = (Button)findViewById(R.id.btn_showquery_unchecked);
 
-        lv = (ListView)findViewById(R.id.query_res);
+        lv = (ListView)findViewById(R.id.lv_showquery_displayres);
 
         initLV();
 
-//        intent = getIntent();
-//        final Bundle raw = intent.getBundleExtra("query");
-//
-//        Log.d("SQS Debug", raw.toString());
-//        setData(99, raw);
-//        refresh();
+        intent = getIntent();
+        final Bundle raw = intent.getBundleExtra("query");
+
+        Log.d("SQS Debug", raw.toString());
+        setData(99, raw);
+        refresh();
         all.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                setData(99, raw);
-//                refresh();
+                setData(99, raw);
+                refresh();
             }
         });
 
         checked.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                setData(1, raw);
-//                refresh();
+                setData(1, raw);
+                refresh();
             }
         });
 
         unchecked.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                setData(0, raw);
-//                refresh();
+                setData(0, raw);
+                refresh();
             }
         });
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        MobclickAgent.onResume(this);
+    }
 
-/*    @Override
+    @Override
+    protected void onPause() {
+        super.onPause();
+        MobclickAgent.onPause(this);
+    }
+
+    /*    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_show_query_res, menu);
@@ -99,21 +109,31 @@ public class ShowQueryRes extends Activity {
         return super.onOptionsItemSelected(item);
     }*/
 
+    /**
+     * “开卡查询”中的ListView使用的Adapter是QueryListAdapter，其中使用的自定义的布局文件为
+     * query_res.xml
+     */
     public void initLV(){
         data = new ArrayList<String[]>();
         qla = new QueryListAdapter(getApplicationContext(), data);
         lv.setAdapter(qla);
 
+        /**
+         * 获取设别的长宽值，单位像素（px）
+         */
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
-        Log.d("WH", dm.widthPixels + "*****" + dm.heightPixels + "");
         ViewGroup.LayoutParams lp = findViewById(R.id.query_cont).getLayoutParams();
         lp.width = dm.widthPixels;
+        //动态设定布局文件的长和宽，以适应不同的屏幕。此时在.xml的布局文件中设置的长宽值会失效
         lp.height = (int)getResources().getDimension(R.dimen.query_len);
 
         findViewById(R.id.query_cont).setLayoutParams(lp);
     }
 
+    /**
+     * 点击不同按钮（All ，checked ，unchecked）时，调用此函数设定ListView的显示内容
+     */
     public void setData(int flag, Bundle input){
         switch (flag){
             case 0:

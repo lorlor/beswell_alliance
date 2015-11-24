@@ -34,18 +34,18 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/AlLoginUsername"
+        android:id="@+id/et_login_username"
         android:hint="用户名"
         android:gravity="center"
         android:background="@drawable/text_shape"
         android:paddingTop="8px"
         android:paddingBottom="8px"
         android:layout_below="@+id/brand_name"
-        android:layout_alignLeft="@+id/AlLoginPasswd"
-        android:layout_alignStart="@+id/AlLoginPasswd"
+        android:layout_alignLeft="@+id/et_login_passwd"
+        android:layout_alignStart="@+id/et_login_passwd"
         android:layout_marginTop="@dimen/usr_marginTop"
-        android:layout_alignRight="@+id/AlLoginPasswd"
-        android:layout_alignEnd="@+id/AlLoginPasswd"
+        android:layout_alignRight="@+id/et_login_passwd"
+        android:layout_alignEnd="@+id/et_login_passwd"
         android:layout_centerHorizontal="true"/>
 
     <EditText
@@ -53,32 +53,32 @@
         android:layout_height="wrap_content"
         android:inputType="textPassword"
         android:ems="10"
-        android:id="@+id/AlLoginPasswd"
+        android:id="@+id/et_login_passwd"
         android:hint="密  码"
         android:gravity="center"
         android:background="@drawable/text_shape"
         android:paddingTop="8px"
         android:paddingBottom="8px"
         android:layout_marginTop="@dimen/login_marginTop"
-        android:layout_below="@+id/AlLoginUsername"
+        android:layout_below="@+id/et_login_username"
         android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="登  录"
-        android:id="@+id/AlLoginBtn"
+        android:id="@+id/btn_login"
         android:textColor="#ffffff"
         android:background="@drawable/login_style"
         android:layout_marginTop="@dimen/login_marginTop"
-        android:layout_below="@+id/AlLoginPasswd"
-        android:layout_alignLeft="@+id/AlLoginPasswd"
-        android:layout_alignStart="@+id/AlLoginPasswd"
-        android:layout_alignRight="@+id/AlLoginPasswd"
-        android:layout_alignEnd="@+id/AlLoginPasswd" />
+        android:layout_below="@+id/et_login_passwd"
+        android:layout_alignLeft="@+id/et_login_passwd"
+        android:layout_alignStart="@+id/et_login_passwd"
+        android:layout_alignRight="@+id/et_login_passwd"
+        android:layout_alignEnd="@+id/et_login_passwd" />
 
     <TextView
-        android:id="@+id/copyright_info"
+        android:id="@+id/tv_login_copyinfo"
         android:text="©2015 Beswell.com 百维阳光汽车服务"
         android:textColor="#ffffff"
         android:textSize="@dimen/copyright_info"

@@ -6,11 +6,9 @@ import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Toast;
@@ -29,7 +27,7 @@ import java.io.IOException;
  */
 public class History extends DialogFragment {
 
-    String IP = "192.168.0.100";
+    String IP = "192.168.0.101";
 
     Bundle records;
 
@@ -67,11 +65,11 @@ public class History extends DialogFragment {
         LayoutInflater layoutInflater = getActivity().getLayoutInflater();
         View v = layoutInflater.inflate(R.layout.fragment_history, null);
 
-        st = (DatePicker)v.findViewById(R.id.hist_startTime);
-        et = (DatePicker)v.findViewById(R.id.hist_endTime);
+        st = (DatePicker)v.findViewById(R.id.dp_histfrag_startTime);
+        et = (DatePicker)v.findViewById(R.id.dp_histfrag_endTime);
 
-        query = (Button)v.findViewById(R.id.hist_query);
-        back = (Button)v.findViewById(R.id.hist_back);
+        query = (Button)v.findViewById(R.id.btn_histfrag_query);
+        back = (Button)v.findViewById(R.id.btn_histfrag_back);
 
         query.setOnClickListener(new View.OnClickListener() {
             @Override

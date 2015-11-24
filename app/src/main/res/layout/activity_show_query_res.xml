@@ -18,7 +18,7 @@
         android:minHeight="40dp">
 
         <Button
-            android:id="@+id/all"
+            android:id="@+id/btn_showquery_all"
             android:text="全 部"
             android:layout_width="0px"
             android:layout_height="match_parent"
@@ -30,7 +30,7 @@
             android:paddingBottom="8dp" />
 
         <Button
-            android:id="@+id/checked"
+            android:id="@+id/btn_showquery_checked"
             android:text="已审核"
             android:layout_width="0px"
             android:layout_height="match_parent"
@@ -42,7 +42,7 @@
             android:paddingTop="8dp" />
 
         <Button
-            android:id="@+id/unchecked"
+            android:id="@+id/btn_showquery_unchecked"
             android:text="未审核"
             android:layout_width="0px"
             android:layout_height="match_parent"
@@ -61,7 +61,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ListView
-            android:id="@+id/query_res"
+            android:id="@+id/lv_showquery_displayres"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:divider="#d7d7d7"
@@ -69,7 +69,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/cr_infoq"
+        android:id="@+id/tv_setpost_copyinfo"
         android:layout_gravity="bottom"
         android:gravity="center_horizontal"
         android:text="© 2015 Beswell.com 百维阳光汽车服务"

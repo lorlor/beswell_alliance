@@ -20,7 +20,7 @@
         android:gravity="center_vertical">
 
         <TextView
-            android:id="@+id/total_count"
+            android:id="@+id/tv_showhist_totalcount"
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="2"
@@ -28,7 +28,7 @@
             android:textColor="#eec900" />
 
         <TextView
-            android:id="@+id/total_cccount"
+            android:id="@+id/tv_showhist_totalcccount"
             android:layout_width="0px"
             android:layout_height="wrap_content"
             android:layout_weight="3"
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:background="#fff">
             <TextView
-                android:id="@+id/hist_id"
+                android:id="@+id/tv_showhist_id"
                 android:paddingLeft="26px"
                 android:layout_marginTop="12px"
                 android:textSize="26sp"
@@ -69,7 +69,7 @@
                 android:layout_height="1dp" />
 
             <TextView
-                android:id="@+id/hist_time"
+                android:id="@+id/tv_showhist_time"
                 android:paddingLeft="26px"
                 android:layout_marginTop="12px"
                 android:textSize="20sp"
@@ -84,7 +84,7 @@
                 android:layout_height="1dp" />
 
             <TextView
-                android:id="@+id/hist_plate"
+                android:id="@+id/tv_showhist_plate"
                 android:paddingLeft="26px"
                 android:layout_marginTop="12px"
                 android:textSize="20sp"
@@ -99,7 +99,7 @@
                 android:layout_height="1dp" />
 
             <TextView
-                android:id="@+id/hist_cardcode"
+                android:id="@+id/tv_showhist_cardcode"
                 android:paddingLeft="26px"
                 android:layout_marginTop="12px"
                 android:textSize="20sp"
@@ -114,7 +114,7 @@
                 android:layout_height="1dp" />
 
             <TextView
-                android:id="@+id/hist_cctype"
+                android:id="@+id/tv_showhist_cctype"
                 android:paddingLeft="26px"
                 android:layout_marginTop="12px"
                 android:textSize="20sp"
@@ -129,7 +129,7 @@
                 android:layout_height="1dp" />
 
             <TextView
-                android:id="@+id/hist_cctimes"
+                android:id="@+id/tv_showhist_cctimes"
                 android:paddingLeft="26px"
                 android:layout_marginTop="12px"
                 android:textSize="20sp"
@@ -144,7 +144,7 @@
                 android:layout_height="1dp" />
 
             <TextView
-                android:id="@+id/hist_star"
+                android:id="@+id/tv_showhist_star"
                 android:paddingLeft="26px"
                 android:layout_marginTop="12px"
                 android:textSize="20sp"
@@ -159,7 +159,7 @@
                 android:layout_height="1dp" />
 
             <TextView
-                android:id="@+id/hist_comment"
+                android:id="@+id/tv_showhist_comment"
                 android:paddingLeft="26px"
                 android:layout_marginTop="12px"
                 android:textSize="20sp"
@@ -188,7 +188,7 @@
         android:minHeight="30dp">
 
         <Button
-            android:id="@+id/hist_prevPage"
+            android:id="@+id/btn_showhist_prev"
             android:layout_weight="1"
             android:text="上一页"
             android:textColor="#fff"
@@ -201,7 +201,7 @@
             android:minHeight="50dp" />
 
         <Spinner
-            android:id="@+id/hist_item"
+            android:id="@+id/sp_showhist_item"
             android:layout_weight="1"
             android:layout_width="fill_parent"
             android:layout_height="match_parent"
@@ -212,7 +212,7 @@
             android:minHeight="50dp"></Spinner>
 
         <Button
-            android:id="@+id/hist_nextPage"
+            android:id="@+id/btn_showhist_next"
             android:layout_weight="1"
             android:text="下一页"
             android:textColor="#fff"
@@ -227,7 +227,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/cr_infoq"
+        android:id="@+id/tv_setpost_copyinfo"
         android:layout_gravity="bottom"
         android:gravity="center_horizontal"
         android:text="© 2015 Beswell.com 百维阳光汽车服务"

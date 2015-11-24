@@ -19,7 +19,7 @@
 
     <DatePicker
         android:layout_weight="6"
-        android:id="@+id/hist_startTime"
+        android:id="@+id/dp_histfrag_startTime"
         android:calendarViewShown="false"
         android:spinnersShown="true"
         android:layout_width="fill_parent"
@@ -40,7 +40,7 @@
 
     <DatePicker
         android:layout_weight="6"
-        android:id="@+id/hist_endTime"
+        android:id="@+id/dp_histfrag_endTime"
         android:calendarViewShown="false"
         android:spinnersShown="true"
         android:layout_width="fill_parent"
@@ -54,7 +54,7 @@
         android:layout_marginBottom="5dp">
 
         <Button
-            android:id="@+id/hist_query"
+            android:id="@+id/btn_histfrag_query"
             android:layout_weight="1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -69,7 +69,7 @@
             android:minHeight="20dp" />
 
         <Button
-            android:id="@+id/hist_back"
+            android:id="@+id/btn_histfrag_back"
             android:layout_weight="1"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"

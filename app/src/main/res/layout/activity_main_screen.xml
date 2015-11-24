@@ -15,7 +15,7 @@
             android:layout_weight="3"
             android:text="联盟号："
             android:textSize="20dp"
-            android:id="@+id/AlCCId"
+            android:id="@+id/tv_mainscreen_AlCCId"
             android:layout_width="0px"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -33,14 +33,14 @@
         android:background="#ffffff"/>
 
     <LinearLayout
-        android:id="@+id/op_buttons"
+        android:id="@+id/ll_mainscreen_opbuttons"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <Button
             android:layout_weight="1"
-            android:id="@+id/AlCCHistory"
+            android:id="@+id/btn_mainscreen_cchistory"
             android:text="历史"
             android:layout_width="0px"
             android:layout_height="match_parent"
@@ -61,7 +61,7 @@
 
         <Button
             android:layout_weight="1"
-            android:id="@+id/AlCCQuery"
+            android:id="@+id/btn_mainscreen_ccquery"
             android:text="查询"
             android:layout_width="0px"
             android:layout_height="match_parent"
@@ -83,7 +83,7 @@
     </LinearLayout>
 
     <ListView
-        android:id="@+id/AlContent"
+        android:id="@+id/lv_mainscreen_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></ListView>
 

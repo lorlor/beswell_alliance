@@ -9,7 +9,7 @@
 
     <ScrollView
         android:layout_alignParentTop="true"
-        android:id="@+id/set_cont"
+        android:id="@+id/sv_setpost_content"
         android:layout_above="@+id/set_divider"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
 
             <!--1-->
             <TextView
-                android:id="@+id/shopName"
+                android:id="@+id/tv_setpost_shopname"
                 android:text="公司名称"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -37,8 +37,8 @@
                 android:paddingLeft="12dp"
                 android:textSize="16sp" />
             <EditText
-                android:id="@+id/set_shopname"
-                android:layout_below="@+id/shopName"
+                android:id="@+id/et_setpost_shopname"
+                android:layout_below="@+id/tv_setpost_shopname"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textScaleX="1.2"
@@ -55,8 +55,8 @@
             <!--2-->
             <TextView
                 android:layout_marginTop="6dp"
-                android:id="@+id/person"
-                android:layout_below="@+id/set_shopname"
+                android:id="@+id/tv_setpost_person"
+                android:layout_below="@+id/et_setpost_shopname"
                 android:text="联系人"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -68,8 +68,8 @@
                 android:paddingLeft="26px"
                 android:textSize="16sp" />
             <EditText
-                android:layout_below="@+id/person"
-                android:id="@+id/set_contactperson"
+                android:layout_below="@+id/tv_setpost_person"
+                android:id="@+id/et_setpost_person"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textScaleX="1.2"
@@ -88,8 +88,8 @@
             <!--3-->
             <TextView
                 android:layout_marginTop="6dp"
-                android:layout_below="@+id/set_contactperson"
-                android:id="@+id/phone"
+                android:layout_below="@+id/et_setpost_person"
+                android:id="@+id/tv_setpost_phone"
                 android:text="联系电话"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -100,8 +100,8 @@
                 android:paddingLeft="26px"
                 android:textSize="16sp" />
             <EditText
-                android:layout_below="@+id/phone"
-                android:id="@+id/set_contactphone"
+                android:layout_below="@+id/tv_setpost_phone"
+                android:id="@+id/et_setpost_phone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textScaleX="1.2"
@@ -120,8 +120,8 @@
             <!--4-->
             <TextView
                 android:layout_marginTop="6dp"
-                android:layout_below="@+id/set_contactphone"
-                android:id="@+id/address"
+                android:layout_below="@+id/et_setpost_phone"
+                android:id="@+id/tv_setpost_address"
                 android:text="详细地址"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -132,8 +132,8 @@
                 android:paddingLeft="26px"
                 android:textSize="16sp" />
             <EditText
-                android:layout_below="@+id/address"
-                android:id="@+id/set_shoploc"
+                android:layout_below="@+id/tv_setpost_address"
+                android:id="@+id/et_setpost_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textScaleX="1.2"
@@ -152,8 +152,8 @@
             <!--5-->
             <TextView
                 android:layout_marginTop="6dp"
-                android:layout_below="@+id/set_shoploc"
-                android:id="@+id/aa"
+                android:layout_below="@+id/et_setpost_address"
+                android:id="@+id/tv_setpost_aa"
                 android:text="A卡 外观洗车 消费次数"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -164,8 +164,8 @@
                 android:paddingLeft="26px"
                 android:textSize="16sp" />
             <EditText
-                android:layout_below="@+id/aa"
-                android:id="@+id/set_cca"
+                android:layout_below="@+id/tv_setpost_aa"
+                android:id="@+id/et_setpost_aa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textScaleX="1.2"
@@ -185,8 +185,8 @@
             <!--6-->
             <TextView
                 android:layout_marginTop="6dp"
-                android:layout_below="@+id/set_cca"
-                android:id="@+id/as"
+                android:layout_below="@+id/et_setpost_aa"
+                android:id="@+id/tv_setpost_as"
                 android:text="A卡 标准洗车 消费次数"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -197,8 +197,8 @@
                 android:paddingLeft="26px"
                 android:textSize="16sp" />
             <EditText
-                android:layout_below="@+id/as"
-                android:id="@+id/set_cca2"
+                android:layout_below="@+id/tv_setpost_as"
+                android:id="@+id/et_setpost_as"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textScaleX="1.2"
@@ -217,8 +217,8 @@
             <!--7-->
             <TextView
                 android:layout_marginTop="6dp"
-                android:layout_below="@+id/set_cca2"
-                android:id="@+id/bs"
+                android:layout_below="@+id/et_setpost_as"
+                android:id="@+id/tv_setpost_bs"
                 android:text="B卡 标准洗车 消费次数"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -229,8 +229,8 @@
                 android:paddingLeft="26px"
                 android:textSize="16sp" />
             <EditText
-                android:layout_below="@+id/bs"
-                android:id="@+id/set_ccb"
+                android:layout_below="@+id/tv_setpost_bs"
+                android:id="@+id/et_setpost_bs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textScaleX="1.2"
@@ -249,9 +249,9 @@
             <!--8-->
             <TextView
                 android:layout_marginTop="6dp"
-                android:layout_below="@+id/set_ccb"
+                android:layout_below="@+id/et_setpost_bs"
                 android:background="#fff"
-                android:id="@+id/state"
+                android:id="@+id/tv_setpost_state"
                 android:text="申请状态"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -290,7 +290,7 @@
     </ScrollView>
 
     <ImageView
-        android:layout_above="@+id/set_confirm"
+        android:layout_above="@+id/btn_setpost_confirm"
         android:id="@+id/set_divider"
         android:layout_width="fill_parent"
         android:layout_height="2dp"
@@ -298,21 +298,21 @@
 
     <Button
         android:layout_gravity="center_horizontal"
-        android:id="@+id/set_confirm"
+        android:id="@+id/btn_setpost_confirm"
         android:text="提交申请"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
         android:background="@drawable/set_query"
         android:textColor="#fff"
         android:layout_marginBottom="10dp"
-        android:layout_above="@+id/cr_infoq"
-        android:layout_alignLeft="@+id/set_cont"
-        android:layout_alignStart="@+id/set_cont"
-        android:layout_alignRight="@+id/set_cont"
-        android:layout_alignEnd="@+id/set_cont" />
+        android:layout_above="@+id/tv_setpost_copyinfo"
+        android:layout_alignLeft="@+id/sv_setpost_content"
+        android:layout_alignStart="@+id/sv_setpost_content"
+        android:layout_alignRight="@+id/sv_setpost_content"
+        android:layout_alignEnd="@+id/sv_setpost_content" />
 
     <TextView
-        android:id="@+id/cr_infoq"
+        android:id="@+id/tv_setpost_copyinfo"
         android:gravity="bottom|center_horizontal"
         android:text="© 2015 Beswell.com 百维阳光汽车服务"
         android:layout_width="match_parent"

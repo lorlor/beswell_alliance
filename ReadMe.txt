@@ -1,0 +1,11 @@
+ÃüÃû¹ßÀý£º
+¿Ø¼þ£º
+	Button - btn
+	EditText - et
+	TextView - tv
+	LinearLayout - ll
+	Spinner - sp
+	DatePicker - dp
+	ScrollView - sv
+	ImageView - iv
+	

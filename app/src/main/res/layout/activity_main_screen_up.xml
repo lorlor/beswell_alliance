@@ -24,7 +24,7 @@
             android:layout_weight="3"
             android:text="联盟号："
             android:textSize="28sp"
-            android:id="@+id/AlCCId"
+            android:id="@+id/tv_mainscreen_AlCCId"
             android:layout_width="0px"
             android:layout_height="match_parent"
             android:gravity="left"
@@ -41,7 +41,7 @@
         android:background="#d7d7d7"/>
 
     <LinearLayout
-        android:id="@+id/op_buttons"
+        android:id="@+id/ll_mainscreen_opbuttons"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -51,7 +51,7 @@
         <TextView
             android:layout_marginLeft="26px"
             android:layout_weight="2"
-            android:id="@+id/AlCCTotalInfo"
+            android:id="@+id/tv_mainscreen_totalinfo"
             android:textColor="#575757"
             android:textSize="20sp"
             android:layout_width="0px"
@@ -59,7 +59,7 @@
 
         <Button
             android:layout_weight="1"
-            android:id="@+id/AlCCHistory"
+            android:id="@+id/btn_mainscreen_cchistory"
             android:text="历史记录"
             android:gravity="center"
             android:layout_width="0px"
@@ -71,7 +71,7 @@
 
         <Button
             android:layout_weight="1"
-            android:id="@+id/AlCCQuery"
+            android:id="@+id/btn_mainscreen_ccquery"
             android:text="开卡查询"
             android:gravity="center"
             android:layout_width="0px"
@@ -92,12 +92,12 @@
 
 
     <LinearLayout
-        android:id="@+id/content"
+        android:id="@+id/ll_mainscreen_content"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="@dimen/refresh_len">
         <ListView
-            android:id="@+id/AlContent"
+            android:id="@+id/lv_mainscreen_content"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingLeft="26dp"
@@ -112,7 +112,7 @@
         android:background="#eee"/>
 
     <TextView
-        android:id="@+id/cr_info"
+        android:id="@+id/tv_mainscreen_copyinfo"
         android:layout_gravity="bottom"
         android:gravity="center_horizontal"
         android:text="© 2015 Beswell.com 百维阳光汽车服务"
